@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Khushi Nandwani – Cloud & DevOps Engineer, AWS Community Builder, Technical Writer." />
+  <title>Khushi Nandwani | Cloud & DevOps</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* BACKGROUND */
+    .circuit-background { position: fixed; inset: 0; background: #000; z-index: 0; }
+    .glitch-overlay {
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(
+        0deg, rgba(0,255,255,0.02), transparent 2px, transparent 4px
+      );
+      pointer-events: none; z-index: 1;
+    }
+
+    /* NAVBAR - UPGRADED */
+    .navbar {
+      position: fixed; top: 0; width: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,30,60,0.85));
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 2px solid rgba(0,255,255,0.3);
+      box-shadow: 0 4px 30px rgba(0,255,255,0.1);
+    }
+    .navbar-content {
+      max-width: 1400px; margin: auto;
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.4rem; font-weight: 800; 
+      color: #00ffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(0,255,255,0.5); }
+      50% { box-shadow: 0 0 20px rgba(255,0,255,0.8); }
+    }
+    .logo-text {
+      background: linear-gradient(135deg, #00ffff, #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(0,255,255,0.5);
+    }
+    
+    .nav-links {
+      display: flex; gap: 2rem; font-size: 0.8rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #999;
+      text-decoration: none;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .nav-links a:focus {
+      outline: 2px solid #00ffff;
+      outline-offset: 2px;
+    }
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00ffff, #ff00ff);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: #00ffff; }
+    .nav-links a:hover::before { width: 100%; }
+
+    /* SOCIAL DOCK */
+    .social-dock {
+      position: fixed; 
+      left: 3rem; 
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex; 
+      flex-direction: column; 
+      gap: 1rem; 
+      z-index: 900;
+    }
+    .social-dock a {
+      width: 42px; height: 42px;
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #00ffff; font-size: 1.1rem;
+      opacity: 0.6; transition: 0.25s;
+      background: rgba(0,0,0,0.6);
+    }
+    .social-dock a:hover { opacity: 1; background: #00ffff; color: #000; transform: scale(1.1); }
+
+    /* HERO */
+    .hero-section {
+      height: 100vh;
+      display: flex; 
+      align-items: center;
+      position: relative; 
+      z-index: 10;
+      padding-top: 80px;
+    }
+    .hero-container { 
+      max-width: 1400px; 
+      margin: auto; 
+      padding: 0 2rem 0 8rem;
+      width: 100%;
+    }
+    .hero-grid {
+      display: grid; 
+      grid-template-columns: 1fr 1fr;
+      gap: 60px; 
+      align-items: stretch;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .status-bar {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid #00ffff; border-radius: 999px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem; color: #00ffff;
+      margin-bottom: 1.2rem;
+      width: fit-content;
+    }
+
+    .status-dot {
+      width: 8px; height: 8px;
+      background: #00ff00; border-radius: 50%;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+
+    .hero-title {
+      font-size: 3.8rem; font-weight: 900; line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .hero-title span {
+      display: block;
+      background: linear-gradient(135deg,#00ffff,#ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem; color: #bbb;
+      max-width: 600px; margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .hero-subtitle .highlight { color: #00ffff; font-weight: 600; }
+
+    /* TERMINAL */
+    .terminal-box {
+      background: rgba(0,0,0,0.9);
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+    }
+    .terminal-header { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; }
+    .terminal-btn { width: 12px; height: 12px; border-radius: 50%; }
+    .red{background:#ff5f56}.yellow{background:#ffbd2e}.green{background:#27c93f}
+    .terminal-content {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem; color: #00ff00;
+      line-height: 1.6;
+    }
+    .terminal-line { margin-bottom: 0.3rem; }
+    .terminal-cursor {
+      display: inline-block; width: 8px; height: 14px;
+      background: #00ff00; margin-left: 4px;
+      animation: cursorBlink 1s infinite;
+    }
+    @keyframes cursorBlink { 0%,50%{opacity:1}51%,100%{opacity:0} }
+
+    /* PROFILE CARD */
+    .profile-card {
+      background: linear-gradient(135deg, rgba(0,30,60,0.4), rgba(30,0,60,0.4));
+      border: 2px solid rgba(0,255,255,0.5);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 32px rgba(0,255,255,0.15);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff);
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: -1;
+    }
+    .profile-card:hover::before { opacity: 0.1; }
+    
+    .card-title {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem; letter-spacing: 3px;
+      color: #00ffff; margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,255,255,0.5);
+    }
+    .metric { margin-bottom: 1.5rem; }
+    .metric-label {
+      font-size: 0.75rem; color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.4rem;
+    }
+    .metric-value {
+      font-size: 1.6rem; font-weight: 800;
+      background: linear-gradient(135deg,#00ffff,#ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(0,255,255,0.3);
+    }
+    .card-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .card-btn {
+      padding: 0.8rem 1.5rem;
+      border: 2px solid #00ffff;
+      background: transparent;
+      color: #00ffff;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.25s ease;
+      font-size: 0.8rem;
+    }
+    .card-btn:hover {
+      background: #00ffff;
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0,255,255,0.4);
+    }
+
+    /* CONTACT MODAL */
+    .modal {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none; align-items: center; justify-content: center;
+      z-index: 2000;
+      backdrop-filter: blur(10px);
+    }
+    .modal.active { display: flex; }
+    .modal-box {
+      background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,30,60,0.9));
+      border: 2px solid #00ffff;
+      border-radius: 14px;
+      padding: 2rem;
+      width: 90%; max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,255,255,0.3);
+    }
+    .modal-box h3 {
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg,#00ffff,#ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.8rem;
+    }
+    .email-box {
+      font-family: 'Fira Code', monospace;
+      padding: 0.8rem;
+      border: 1px dashed rgba(0,255,255,0.4);
+      margin-bottom: 1rem;
+      color: #00ffff;
+      background: rgba(0,255,255,0.05);
+    }
+    .copy-btn {
+      padding: 0.7rem 1.8rem;
+      border: 2px solid #00ffff;
+      background: transparent;
+      color: #00ffff;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: 0.25s;
+    }
+    .copy-btn:hover { 
+      background: #00ffff; 
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0,255,255,0.4);
+    }
+
+    @media (max-width: 1200px) {
+      .hero-container { padding: 0 2rem 0 7rem; }
+      .hero-title { font-size: 3.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .social-dock { left: 2.5rem; }
+      .profile-card { padding: 2.2rem 1.8rem; }
+      .metric-value { font-size: 1.5rem; }
+      .card-btn { font-size: 0.75rem; padding: 0.75rem 1.3rem; }
+      .modal-box { padding: 1.8rem; width: 95%; max-width: 400px; }
+      .modal-box h3 { font-size: 1.6rem; }
+      .email-box { padding: 0.7rem; font-size: 0.9rem; }
+      .copy-btn { padding: 0.6rem 1.6rem; font-size: 0.9rem; }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-container { padding: 0 3rem 0 6rem; }
+      .hero-title { font-size: 3.2rem; }
+      .social-dock { left: 2rem; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero-title { font-size: 2.8rem; }
+      .navbar-content { flex-wrap: wrap; gap: 1rem; }
+      .nav-links { display: flex; gap: 1rem; font-size: 0.7rem; flex-wrap: wrap; justify-content: center; width: 100%; }
+      .hero-container { padding: 0 2rem; }
+      body { overflow-y: auto; height: auto; }
+      .hero-section { height: auto; min-height: 100vh; padding: 100px 0 40px; }
+      .hero-subtitle { font-size: 1rem; }
+      .terminal-box { padding: 0.8rem 1rem; }
+      .terminal-content { font-size: 0.8rem; }
+      .profile-card { padding: 2rem 1.5rem; }
+      .card-title { font-size: 0.9rem; }
+      .metric-value { font-size: 1.4rem; }
+      .card-btn { font-size: 0.75rem; padding: 0.7rem 1.2rem; }
+      .social-dock {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;
+        flex-direction: row;
+        gap: 15px;
+        background: rgba(0,0,0,0.8);
+        padding: 10px 20px;
+        border-radius: 25px;
+        border: 1px solid rgba(0,255,255,0.3);
+        backdrop-filter: blur(10px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-content { padding: 1rem; flex-wrap: wrap; gap: 1rem; }
+      .logo { font-size: 1.2rem; }
+      .nav-links { display: flex; gap: 1rem; font-size: 0.7rem; flex-wrap: wrap; justify-content: center; width: 100%; }
+      .hero-section { padding: 140px 0 20px; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 0.95rem; }
+      .status-bar { font-size: 0.65rem; padding: 0.3rem 0.8rem; }
+      .terminal-box { padding: 0.7rem 0.9rem; }
+      .terminal-content { font-size: 0.75rem; }
+      .profile-card { padding: 1.5rem 1rem; }
+      .card-title { font-size: 0.85rem; }
+      .metric-label { font-size: 0.7rem; }
+      .metric-value { font-size: 1.2rem; }
+      .card-btn { font-size: 0.7rem; padding: 0.6rem 1rem; }
+      .modal-box { padding: 1.5rem; width: 95%; max-width: 380px; }
+      .modal-box h3 { font-size: 1.5rem; }
+      .email-box { padding: 0.6rem; font-size: 0.9rem; }
+      .copy-btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section { padding: 80px 0 20px; }
+      .hero-container { padding: 0 1rem; }
+      .hero-title { font-size: 2rem; line-height: 1.1; }
+      .hero-subtitle { font-size: 0.9rem; }
+      .status-bar { font-size: 0.6rem; padding: 0.25rem 0.7rem; }
+      .terminal-box { padding: 0.6rem 0.8rem; }
+      .terminal-content { font-size: 0.7rem; }
+      .profile-card { padding: 1.2rem 0.8rem; }
+      .card-title { font-size: 0.8rem; }
+      .metric-label { font-size: 0.65rem; }
+      .metric-value { font-size: 1rem; }
+      .card-btn { font-size: 0.65rem; padding: 0.5rem 0.9rem; }
+      .modal-box { padding: 1.2rem; width: 90%; }
+      .modal-box h3 { font-size: 1.3rem; }
+      .email-box { padding: 0.5rem; font-size: 0.85rem; }
+      .copy-btn { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="circuit-background"></div>
+<div class="glitch-overlay"></div>
+
+<nav class="navbar">
+  <div class="navbar-content">
+    <div class="logo">
+      <div class="logo-icon">⚡</div>
+      <div class="logo-text">PORTFOLIO SHOWCASE</div>
+    </div>
+    <div class="nav-links">
+      <a href="about_me.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="learning.html">Learning</a>
+      <a href="project.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="education.html">Education</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="honors.html">Honors</a>
+      <a href="blogs.html">Writing</a>
+    </div>
+  </div>
+</nav>
+
+<div class="social-dock">
+  <a href="https://www.linkedin.com/in/khushi-nandwani/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://github.com/Knandwani07" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+  <a href="https://dev.to/khushi_nandwani07" target="_blank" aria-label="Dev.to Profile"><i class="fab fa-dev"></i></a>
+  <a href="https://medium.com/@khushinandwanii" target="_blank" aria-label="Medium Profile"><i class="fab fa-medium-m"></i></a>
+  <a href="https://substack.com/@knandwani07" target="_blank" aria-label="Substack Profile"><i class="fas fa-newspaper"></i></a>
+  <a href="https://builder.aws.com/community/@khushi07" target="_blank" aria-label="AWS Builder Community Profile"><i class="fab fa-aws"></i></a>
+</div>
+
+<section class="hero-section" id="main-content">
+  <div class="hero-container">
+    <div class="hero-grid">
+
+      <div class="hero-left">
+        <div class="status-bar"><span class="status-dot"></span>BUILDING THE CLOUD, ONE COMMIT AT A TIME</div>
+
+        <h1 class="hero-title"><span>KHUSHI</span><span>NANDWANI</span></h1>
+
+        <p class="hero-subtitle">
+          Designing <span class="highlight">scalable cloud systems</span>,
+          automating infrastructure, and writing documentation engineers trust.
+        </p>
+
+        <div class="terminal-box">
+          <div class="terminal-header">
+            <div class="terminal-btn red"></div>
+            <div class="terminal-btn yellow"></div>
+            <div class="terminal-btn green"></div>
+          </div>
+          <div class="terminal-content">
+            <div class="terminal-line">$ aws sts get-caller-identity</div>
+            <div class="terminal-line">&gt; UserId: "khushi-nandwani"</div>
+            <div class="terminal-line">&gt; Account: "CloudArchitect"</div>
+            <div class="terminal-line">$ kubectl get pods --namespace=expertise</div>
+            <div class="terminal-line">&gt; devops-engineer    Running</div>
+            <div class="terminal-line">&gt; tech-writer        Running</div>
+            <div class="terminal-line">&gt; aws-builder        Running</div>
+            <div class="terminal-line">$ echo $MISSION</div>
+            <div class="terminal-line">&gt; "Automate everything, document twice"<span class="terminal-cursor"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="card-title">⚡ PROFILE SNAPSHOT</div>
+        <div class="metric"><div class="metric-label">Focus</div><div class="metric-value">AWS & DevOps</div></div>
+        <div class="metric"><div class="metric-label">Strength</div><div class="metric-value">Architecture & Docs</div></div>
+        <div class="metric"><div class="metric-label">Community</div><div class="metric-value">AWS Builder</div></div>
+        
+        <div class="card-cta-group">
+          <a href="project.html" class="card-btn">VIEW PROJECTS</a>
+          <button class="card-btn" onclick="openModal()">CONTACT ME</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+  <div class="modal-box">
+    <h3>Get In Touch</h3>
+    <div class="email-box">khushinandwani07@gmail.com</div>
+    <button class="copy-btn" onclick="copyEmail()">COPY EMAIL</button>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('contactModal').classList.add('active');
+  }
+  function copyEmail() {
+    navigator.clipboard.writeText("khushinandwani07@gmail.com");
+    alert("Email copied to clipboard!");
+  }
+  document.getElementById('contactModal').addEventListener('click', e => {
+    if (e.target.id === 'contactModal') e.target.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
