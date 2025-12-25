@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievements - Khushi Nandwani</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #e0e0e0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== THEME BACKGROUND ===== */
+    .circuit-background {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: -2;
+    }
+
+    .glitch-overlay {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0,255,255,0.02),
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Mobile Home Button */
+    .mobile-home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      background: rgba(0, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(0, 255, 255, 0.4);
+      border-radius: 25px;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+    }
+
+    .mobile-home-btn:hover {
+      background: rgba(0, 255, 255, 0.25);
+      border-color: rgba(0, 255, 255, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .mobile-home-btn i {
+      font-size: 0.85rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(0,255,255,0.15);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      text-shadow: 0 0 20px rgba(0,255,255,0.5);
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.7rem 1.5rem;
+      background: rgba(0,255,255,0.08);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 50px;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-back:hover {
+      background: rgba(0,255,255,0.15);
+      transform: translateX(-5px);
+    }
+
+    /* Hero */
+    .hero-section {
+      padding: 140px 2rem 60px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: rgba(0,255,255,0.1);
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 50px;
+      color: #00ffff;
+      font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 8vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg,#00ffff,#ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      word-wrap: break-word;
+    }
+
+    .hero-description {
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      color: #999;
+      max-width: 900px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      word-wrap: break-word;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .hero-metrics > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .metric-value {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: #00ffff;
+    }
+
+    .metric-label {
+      font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    /* Achievements */
+    .achievements-container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 60px 2rem 120px;
+    }
+
+    .achievement-card {
+      background: rgba(10,10,20,0.6);
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 25px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .achievement-header-section {
+      padding: 2.5rem;
+      background: linear-gradient(135deg,rgba(0,255,255,0.1),rgba(255,0,255,0.05));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .achievement-header-content {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .achievement-tag {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      padding: 0.4rem 1rem;
+      background: linear-gradient(135deg,#00ffff,#00cccc);
+      color: #000;
+      font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+      border-radius: 50px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .achievement-name {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.5rem;
+      word-wrap: break-word;
+    }
+
+    .achievement-org {
+      color: #888;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+
+    .achievement-logo {
+      width: clamp(80px, 15vw, 120px);
+      height: clamp(80px, 15vw, 120px);
+      background: rgba(0,255,255,0.08);
+      border: 2px solid rgba(0,255,255,0.3);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .achievement-logo img {
+      max-width: 85%;
+      max-height: 85%;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    /* NEW: Stats Section */
+    .achievement-stats {
+      display: flex;
+      justify-content: space-around;
+      padding: 2rem;
+      background: rgba(0,0,0,0.3);
+      border-top: 1px solid rgba(0,255,255,0.15);
+      border-bottom: 1px solid rgba(0,255,255,0.15);
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-width: 140px;
+      flex: 1;
+    }
+
+    .stat-value {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      background: linear-gradient(90deg,#00ffff,#ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .achievement-body {
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .achievement-content p {
+      line-height: 1.9;
+      color: #b0b0b0;
+      margin-bottom: 1.5rem;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      word-wrap: break-word;
+    }
+
+    .achievement-content strong {
+      color: #00ffff;
+    }
+
+    .achievement-highlights {
+      background: rgba(0,255,255,0.03);
+      border: 1px solid rgba(0,255,255,0.15);
+      border-radius: 15px;
+      padding: 1.8rem;
+    }
+
+    .highlights-title {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      padding-left: 0.8rem;
+      border-left: 3px solid #00ffff;
+      color: #aaa;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      word-wrap: break-word;
+    }
+
+    .highlight-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Responsive Breakpoints */
+    @media (min-width: 900px) {
+      .achievement-body {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar { 
+        padding: 1rem 0; 
+      }
+      
+      .nav-container { 
+        padding: 0 1rem; 
+      }
+
+      .nav-back {
+        display: none;
+      }
+
+      .mobile-home-btn {
+        display: inline-flex;
+      }
+
+      .hero-section { 
+        padding: 110px 1rem 40px; 
+      }
+
+      .hero-label { 
+        padding: 0.4rem 1rem; 
+        margin-bottom: 1rem; 
+      }
+
+      .hero-title { 
+        margin-bottom: 1rem; 
+      }
+
+      .hero-description { 
+        margin-bottom: 2rem; 
+      }
+
+      .hero-metrics { 
+        gap: 1.5rem; 
+      }
+
+      .achievements-container { 
+        padding: 40px 1rem 80px; 
+      }
+
+      .achievement-card { 
+        margin-bottom: 30px; 
+        border-radius: 20px;
+      }
+
+      .achievement-header-section { 
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .achievement-header-content {
+        width: 100%;
+      }
+
+      .achievement-name {
+        justify-content: center;
+      }
+
+      .achievement-logo {
+        margin: 0 auto;
+      }
+
+      .achievement-stats {
+        padding: 1.5rem 1rem;
+        gap: 1.2rem;
+      }
+
+      .stat-box {
+        min-width: 100px;
+      }
+
+      .achievement-body { 
+        padding: 1.5rem;
+        gap: 1.5rem;
+      }
+
+      .achievement-content p { 
+        margin-bottom: 1rem; 
+      }
+
+      .achievement-highlights { 
+        padding: 1.5rem; 
+      }
+
+      .highlights-title { 
+        margin-bottom: 1rem; 
+      }
+
+      .highlight-item { 
+        padding-left: 0.7rem; 
+        margin-bottom: 1rem; 
+        border-left-width: 2px; 
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar { 
+        padding: 0.8rem 0; 
+      }
+      
+      .nav-container { 
+        padding: 0 0.75rem; 
+      }
+
+      .mobile-home-btn {
+        top: 15px;
+        right: 15px;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .hero-section { 
+        padding: 100px 0.75rem 30px; 
+      }
+
+      .hero-label { 
+        padding: 0.35rem 0.8rem; 
+        margin-bottom: 0.8rem; 
+      }
+
+      .hero-description { 
+        margin-bottom: 1.5rem; 
+      }
+
+      .hero-metrics { 
+        gap: 1.2rem; 
+      }
+
+      .achievements-container { 
+        padding: 30px 0.75rem 60px; 
+      }
+
+      .achievement-card { 
+        margin-bottom: 25px; 
+        border-radius: 15px;
+      }
+
+      .achievement-header-section { 
+        padding: 1.2rem;
+      }
+
+      .achievement-tag { 
+        padding: 0.3rem 0.8rem; 
+        margin-bottom: 0.8rem; 
+      }
+
+      .achievement-name {
+        gap: 0.5rem;
+      }
+
+      .achievement-stats {
+        padding: 1.2rem 0.75rem;
+        gap: 1rem;
+        flex-direction: column;
+      }
+
+      .stat-box {
+        min-width: unset;
+        width: 100%;
+      }
+
+      .achievement-body { 
+        padding: 1.2rem;
+        gap: 1.2rem;
+      }
+
+      .achievement-content p { 
+        margin-bottom: 0.9rem; 
+      }
+
+      .achievement-highlights { 
+        padding: 1.2rem; 
+      }
+
+      .highlights-title { 
+        margin-bottom: 0.9rem; 
+      }
+
+      .highlight-item { 
+        padding-left: 0.6rem; 
+        margin-bottom: 0.9rem; 
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav-container { 
+        padding: 0 0.5rem; 
+      }
+
+      .mobile-home-btn {
+        top: 12px;
+        right: 12px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .hero-section { 
+        padding: 95px 0.5rem 25px; 
+      }
+
+      .achievements-container { 
+        padding: 25px 0.5rem 50px; 
+      }
+
+      .achievement-header-section { 
+        padding: 1rem;
+      }
+
+      .achievement-stats {
+        padding: 1rem 0.5rem;
+      }
+
+      .achievement-body { 
+        padding: 1rem;
+      }
+
+      .achievement-highlights { 
+        padding: 1rem; 
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="circuit-background"></div>
+<div class="glitch-overlay"></div>
+
+<!-- Mobile Home Button -->
+<a href="index.html" class="mobile-home-btn">
+  <i class="fas fa-arrow-left"></i>
+  <span>Back to Home</span>
+</a>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo"><a href="index.html">Khushi Nandwani</a></div>
+    <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> <span>Back to Home</span></a>
+  </div>
+</nav>
+
+<section class="hero-section">
+  <span class="hero-label">Recognition & Impact</span>
+  <h1 class="hero-title">Achievements</h1>
+  <p class="hero-description">
+    Celebrating milestones earned through dedication to cloud innovation, continuous learning,
+    and meaningful contributions to the global tech community.
+  </p>
+</section>
+
+<section class="achievements-container">
+
+  <div class="achievement-card">
+    <div class="achievement-header-section">
+      <div class="achievement-header-content">
+        <span class="achievement-tag"><i class="fas fa-award"></i> Community Leadership</span>
+        <h2 class="achievement-name">
+          AWS Community Builder
+          <i class="fab fa-aws" style="color:#00ffff;"></i>
+        </h2>
+        <p class="achievement-org">Amazon Web Services</p>
+      </div>
+      <div class="achievement-logo">
+        <img src="images/awscb.jpg" alt="AWS Community Builder Badge">
+      </div>
+    </div>
+
+    <!-- NEW: Stats Section -->
+    <div class="achievement-stats">
+      <div class="stat-box">
+        <div class="stat-value">2025</div>
+        <div class="stat-label">Year Selected</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">Global</div>
+        <div class="stat-label">Recognition</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">Active</div>
+        <div class="stat-label">Community Builder</div>
+      </div>
+    </div>
+
+    <div class="achievement-body">
+      <div class="achievement-content">
+        <p>
+          Proudly selected as an <strong>AWS Community Builder</strong>, a prestigious recognition
+          awarded to passionate cloud advocates who actively contribute to the AWS ecosystem.
+        </p>
+        <p>
+          This invitation-only program celebrates professionals who demonstrate exceptional
+          commitment to knowledge sharing and community growth.
+        </p>
+        <p>
+          As a Community Builder, I collaborate with global experts and gain early insights into AWS innovations.
+        </p>
+      </div>
+
+      <div class="achievement-highlights">
+        <h3 class="highlights-title"><i class="fas fa-star"></i> Key Benefits</h3>
+        <div class="highlight-item">Official AWS recognition and badge</div>
+        <div class="highlight-item">Access to AWS product teams</div>
+        <div class="highlight-item">Early access to new features</div>
+        <div class="highlight-item">Global networking opportunities</div>
+        <div class="highlight-item">Invitations to AWS events</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
