@@ -211,14 +211,14 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       margin-bottom: 30px;
     }
 
     .cert-grid.single-row {
-      grid-template-columns: 1fr;
-      max-width: 600px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      max-width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
@@ -331,11 +331,19 @@
       position: relative;
       width: 100%;
       margin-bottom: 20px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 30, 60, 0.3);
+      border-radius: 15px;
+      padding: 15px;
     }
 
     .cert-media img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
       border-radius: 15px;
       border: 2px solid rgba(0, 255, 255, 0.2);
       transition: all 0.3s ease;
@@ -494,44 +502,54 @@
     @media (max-width: 900px) {
       .cert-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 15px;
       }
 
       .cert-grid.single-row {
         grid-template-columns: 1fr;
-        max-width: 100%;
       }
 
       .cert-item {
-        padding: 25px 15px;
+        padding: 20px 12px;
       }
 
       .cert-media {
-        margin-bottom: 15px;
+        margin-bottom: 12px;
+        padding: 10px;
       }
 
       .cert-text h2 {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
 
       .cert-text > p {
-        font-size: 0.85rem;
-        margin-bottom: 15px;
+        font-size: 0.8rem;
+        margin-bottom: 12px;
       }
 
       .cert-points {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
 
       .cert-points li {
-        font-size: 0.8rem;
-        padding: 6px 0 6px 18px;
-        margin-bottom: 6px;
+        font-size: 0.75rem;
+        padding: 5px 0 5px 16px;
+        margin-bottom: 5px;
+      }
+
+      .cert-points li::before {
+        font-size: 1rem;
       }
 
       .btn {
-        padding: 10px 20px;
-        font-size: 0.85rem;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+      }
+
+      .cert-tag {
+        font-size: 0.65rem;
+        padding: 5px 12px;
+        margin-bottom: 10px;
       }
     }
 
@@ -587,12 +605,12 @@
       }
 
       .logo a {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
 
       .nav-back {
         padding: 0.45rem 0.8rem;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
 
       .cert-header {
@@ -603,8 +621,55 @@
         padding: 25px 12px 90px;
       }
 
+      .cert-grid {
+        gap: 12px;
+      }
+
       .cert-item {
-        padding: 20px 15px;
+        padding: 15px 10px;
+      }
+
+      .cert-media {
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+
+      .cert-text h2 {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+
+      .cert-text > p {
+        font-size: 0.75rem;
+        margin-bottom: 10px;
+      }
+
+      .cert-points {
+        margin-bottom: 12px;
+      }
+
+      .cert-points li {
+        font-size: 0.7rem;
+        padding: 4px 0 4px 14px;
+        margin-bottom: 4px;
+        border-left-width: 2px;
+      }
+
+      .cert-points li::before {
+        font-size: 0.9rem;
+        left: 3px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+        gap: 6px;
+      }
+
+      .cert-tag {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+        margin-bottom: 8px;
       }
 
       .cert-stats {
