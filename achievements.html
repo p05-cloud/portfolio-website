@@ -40,39 +40,6 @@
       z-index: -1;
     }
 
-    /* Mobile Home Button */
-    .mobile-home-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1001;
-      display: none;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.2rem;
-      background: rgba(0, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border: 1.5px solid rgba(0, 255, 255, 0.4);
-      border-radius: 25px;
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
-    }
-
-    .mobile-home-btn:hover {
-      background: rgba(0, 255, 255, 0.25);
-      border-color: rgba(0, 255, 255, 0.6);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
-    }
-
-    .mobile-home-btn i {
-      font-size: 0.85rem;
-    }
-
     /* Navbar */
     .navbar {
       position: fixed;
@@ -267,7 +234,7 @@
       object-fit: contain;
     }
 
-    /* NEW: Stats Section */
+    /* Stats Section */
     .achievement-stats {
       display: flex;
       justify-content: space-around;
@@ -357,6 +324,34 @@
       margin-bottom: 0;
     }
 
+    /* HOME BUTTON - Matches Experience Page Style */
+    .home-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+
+    .home-button a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 25px;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+      font-size: clamp(0.85rem, 2vw, 1rem);
+    }
+
+    .home-button a:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
+    }
+
     /* Responsive Breakpoints */
     @media (min-width: 900px) {
       .achievement-body {
@@ -372,14 +367,6 @@
       
       .nav-container { 
         padding: 0 1rem; 
-      }
-
-      .nav-back {
-        display: none;
-      }
-
-      .mobile-home-btn {
-        display: inline-flex;
       }
 
       .hero-section { 
@@ -461,6 +448,15 @@
         margin-bottom: 1rem; 
         border-left-width: 2px; 
       }
+
+      .home-button {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .home-button a {
+        padding: 12px 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -470,13 +466,6 @@
       
       .nav-container { 
         padding: 0 0.75rem; 
-      }
-
-      .mobile-home-btn {
-        top: 15px;
-        right: 15px;
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
       }
 
       .hero-section { 
@@ -550,18 +539,21 @@
         padding-left: 0.6rem; 
         margin-bottom: 0.9rem; 
       }
+
+      .home-button {
+        bottom: 15px;
+        right: 15px;
+      }
+
+      .home-button a {
+        padding: 10px 18px;
+        gap: 8px;
+      }
     }
 
     @media (max-width: 360px) {
       .nav-container { 
         padding: 0 0.5rem; 
-      }
-
-      .mobile-home-btn {
-        top: 12px;
-        right: 12px;
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8rem;
       }
 
       .hero-section { 
@@ -596,12 +588,6 @@
 <div class="circuit-background"></div>
 <div class="glitch-overlay"></div>
 
-<!-- Mobile Home Button -->
-<a href="index.html" class="mobile-home-btn">
-  <i class="fas fa-arrow-left"></i>
-  <span>Back to Home</span>
-</a>
-
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo"><a href="index.html">Khushi Nandwani</a></div>
@@ -635,7 +621,6 @@
       </div>
     </div>
 
-    <!-- NEW: Stats Section -->
     <div class="achievement-stats">
       <div class="stat-box">
         <div class="stat-value">2025</div>
@@ -678,6 +663,11 @@
   </div>
 
 </section>
+
+<!-- HOME BUTTON -->
+<div class="home-button">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+</div>
 
 </body>
 </html>
