@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Khushi Nandwani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+        }
+
+        .navbar .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .logo a:hover {
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 999px;
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-back:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: translateX(-3px);
+        }
+
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title-underline {
+            width: 100px;
+            height: 4px;
+            margin: 1rem auto;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            border-radius: 2px;
+            animation: expand 2s ease-in-out infinite;
+        }
+
+        @keyframes expand {
+            0%, 100% { width: 100px; }
+            50% { width: 150px; }
+        }
+
+        .page-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #bbb;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-content {
+            padding: 2rem 0 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .container {
+            padding: 0 2rem;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 3rem;
+            background: rgba(10, 10, 25, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .profile-header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 255, 255, 0.2);
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-role {
+            font-size: 1.3rem;
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-bio {
+            font-size: 1.05rem;
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .profile-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .badge {
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            font-size: 0.95rem;
+            color: #00ffff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .badge:hover {
+            background: #00ffff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 2.5rem 3rem;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+            border-radius: 30px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #bbb;
+        }
+
+        .skills-section {
+            padding: 2.5rem 3rem;
+            background: rgba(10, 10, 25, 0.5);
+            border-radius: 30px;
+            border-left: 4px solid;
+            border-image: linear-gradient(135deg, #00ffff, #ff00ff) 1;
+            margin-bottom: 3rem;
+        }
+
+        .skills-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skills-title i {
+            color: #00ffff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            padding: 1rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            font-size: 0.95rem;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: rgba(0, 255, 255, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 3rem;
+            background: rgba(10, 10, 25, 0.5);
+            border-radius: 30px;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(135deg, #00ffff, #ff00ff) 1;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            background: rgba(10, 10, 25, 0.7);
+        }
+
+        .section-heading {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-heading i {
+            color: #00ffff;
+            font-size: 1.8rem;
+        }
+
+        .intro-text {
+            color: #bbb;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text strong {
+            color: #fff;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .journey-card {
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .journey-card:hover {
+            background: rgba(0, 255, 255, 0.05);
+            border-color: rgba(0, 255, 255, 0.5);
+            transform: translateX(5px);
+        }
+
+        .journey-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .journey-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #000;
+            margin-bottom: 1.2rem;
+        }
+
+        .journey-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .journey-description {
+            color: #bbb;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            background: rgba(0, 255, 255, 0.05);
+            border-color: rgba(0, 255, 255, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #00ffff;
+            margin-bottom: 1.2rem;
+        }
+
+        .value-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .value-description {
+            color: #bbb;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .interest-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .interest-item:hover {
+            background: rgba(0, 255, 255, 0.05);
+            border-color: rgba(0, 255, 255, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .interest-item i {
+            color: #00ffff;
+            font-size: 2rem;
+        }
+
+        .interest-item span {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .journey-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .interests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                padding: 0 1.5rem;
+            }
+            .navbar .logo a {
+                font-size: 1.3rem;
+            }
+            .nav-back { 
+                padding: 0.5rem 0.9rem;
+                font-size: 0.85rem;
+                gap: 0.4rem;
+            }
+            .container {
+                padding: 0 1.5rem;
+            }
+            .page-header {
+                margin-top: 70px;
+                padding: 2.5rem 1.5rem;
+            }
+            .page-header::before {
+                width: 400px;
+                height: 400px;
+            }
+            .hero-section {
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+                gap: 2rem;
+            }
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+            .profile-name {
+                font-size: 2rem;
+            }
+            .profile-role {
+                font-size: 1.1rem;
+            }
+            .profile-bio {
+                font-size: 1rem;
+            }
+            .profile-badges {
+                justify-content: center;
+                gap: 0.8rem;
+            }
+            .badge {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .stats-row {
+                padding: 2rem 1.5rem;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+            .stat-label {
+                font-size: 0.9rem;
+            }
+            .skills-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .skills-title {
+                font-size: 1.3rem;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 0.8rem;
+            }
+            .skill-tag {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            .section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .section-heading {
+                font-size: 1.6rem;
+                gap: 0.8rem;
+            }
+            .section-heading i {
+                font-size: 1.5rem;
+            }
+            .intro-text {
+                font-size: 1rem;
+            }
+            .journey-card, .value-card {
+                padding: 1.5rem;
+            }
+            .journey-icon, .value-icon {
+                width: 55px;
+                height: 55px;
+            }
+            .journey-title, .value-title {
+                font-size: 1.1rem;
+            }
+            .journey-description, .value-description {
+                font-size: 0.95rem;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .interest-item {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .container {
+                padding: 0 1rem;
+            }
+            .navbar .logo a {
+                font-size: 1.1rem;
+            }
+            .nav-back {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+            .page-header {
+                padding: 2rem 1rem;
+            }
+            .profile-header {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            .profile-name {
+                font-size: 1.6rem;
+            }
+            .badge {
+                font-size: 0.85rem;
+            }
+            .stats-row {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .section {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Khushi Nandwani</a>
+            </div>
+            <a href="index.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1 class="page-title">About Me</h1>
+        <div class="title-underline"></div>
+        <p class="page-subtitle">Cloud & DevOps Explorer | Front-end Developer | Tech Storyteller</p>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="hero-section">
+                <div class="profile-header">
+                    <div class="profile-image-container">
+                        <img src="images/mee.png" alt="Khushi Nandwani" class="profile-image">
+                    </div>
+                    <div class="profile-content">
+                        <h2 class="profile-name">Khushi Nandwani</h2>
+                        <p class="profile-role">Cloud & DevOps Professional</p>
+                        <p class="profile-bio">
+                            Passionate about building scalable cloud solutions and sharing knowledge through impactful technical content. I specialize in crafting responsive web experiences while architecting robust cloud infrastructure.
+                        </p>
+                        <div class="profile-badges">
+                            <span class="badge"><i class="fab fa-aws"></i> AWS Community Builder</span>
+                            <span class="badge"><i class="fas fa-certificate"></i> 3x AWS Certified</span>
+                            <span class="badge"><i class="fas fa-code"></i> Front-end Dev</span>
+                            <span class="badge"><i class="fas fa-pen"></i> Content Writer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">AWS Certifications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Tech Articles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1K+</span>
+                        <span class="stat-label">Readers Reached</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3 class="skills-title">
+                    <i class="fas fa-tools"></i> Technical Arsenal
+                </h3>
+                <div class="skills-grid">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">DevOps</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-heading">
+                    <i class="fas fa-user-circle"></i> <span class="highlight">About</span> Me
+                </h3>
+                <p class="intro-text">
+                    I specialize in crafting <strong>responsive and interactive web experiences</strong> while architecting robust cloud infrastructure. 
+                    Currently expanding my expertise in AI/ML integration, I thrive on solving complex technical challenges and building innovative solutions.
+                </p>
+                <p class="intro-text">
+                    My journey encompasses <strong>modern web development, cloud architecture, DevOps automation, and emerging AI technologies</strong>. 
+                    I'm driven by a commitment to continuous learning and believe in the power of collaboration to create meaningful technological impact.
+                </p>
+            </div>
+
+            <div class="section">
+                <h3 class="section-heading">
+                    <i class="fas fa-rocket"></i> Professional <span class="highlight">Journey</span>
+                </h3>
+                <div class="journey-grid">
+                    <div class="journey-card">
+                        <div class="journey-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4 class="journey-title">Academic Foundation</h4>
+                        <p class="journey-description">
+                            Completed Bachelor's in Computer Application, establishing strong fundamentals in programming, software development methodologies, and computer science principles that form the bedrock of my technical expertise.
+                        </p>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-icon"><i class="fas fa-cloud"></i></div>
+                        <h4 class="journey-title">Cloud Exploration</h4>
+                        <p class="journey-description">
+                            Embarked on my cloud journey by earning AWS Cloud Practitioner certification, discovering my passion for scalable infrastructure, automation, and the transformative power of cloud technologies.
+                        </p>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-icon"><i class="fas fa-award"></i></div>
+                        <h4 class="journey-title">Community Recognition</h4>
+                        <p class="journey-description">
+                            Recognized as an AWS Community Builder, actively contributing to the tech community through technical content creation, knowledge sharing, and mentorship worldwide.
+                        </p>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-icon"><i class="fas fa-code-branch"></i></div>
+                        <h4 class="journey-title">DevOps Excellence</h4>
+                        <p class="journey-description">
+                            Currently working as a DevOps Intern, gaining hands-on experience with CI/CD pipelines, containerization technologies, infrastructure as code, and exploring AI/ML workflows.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-heading">
+                    <i class="fas fa-compass"></i> Core <span class="highlight">Values</span>
+                </h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4 class="value-title">Innovation</h4>
+                        <p class="value-description">Constantly exploring cutting-edge technologies and applying creative problem-solving approaches to build solutions that push boundaries.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-users"></i></div>
+                        <h4 class="value-title">Collaboration</h4>
+                        <p class="value-description">Believing in the power of teamwork and collective intelligence to achieve greater impact and accelerate mutual growth.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-book-open"></i></div>
+                        <h4 class="value-title">Continuous Learning</h4>
+                        <p class="value-description">Embracing a growth mindset, staying endlessly curious, and adapting to the ever-evolving landscape of technology.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-code-branch"></i></div>
+                        <h4 class="value-title">Quality Code</h4>
+                        <p class="value-description">Crafting clean, maintainable, and well-documented code that scales gracefully and stands the test of time.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+                        <h4 class="value-title">Giving Back</h4>
+                        <p class="value-description">Sharing knowledge through technical writing, mentorship, and community engagement to help others succeed.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4 class="value-title">Impact</h4>
+                        <p class="value-description">Creating meaningful solutions that drive real technological advancement and make a positive difference.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-heading">
+                    <i class="fas fa-star"></i> Beyond <span class="highlight">Coding</span>
+                </h3>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <i class="fas fa-blog"></i>
+                        <span>Writing Technical Articles</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fab fa-github"></i>
+                        <span>Open-Source Contributions</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-palette"></i>
+                        <span>Designing with Canva</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Mentoring Developers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
