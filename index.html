@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Khushi Nandwani – Cloud & DevOps Engineer, AWS Community Builder, Technical Writer." />
   <title>Khushi Nandwani | Cloud & DevOps</title>
 
+  <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
+<style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Poppins', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
     .circuit-background { position: fixed; inset: 0; background: #000; z-index: 0; }
@@ -96,11 +97,13 @@
     }
   </style>
 </head>
+
 <body>
 
 <div class="circuit-background"></div>
 <div class="glitch-overlay"></div>
 
+<!-- SOCIAL HEADER -->
 <header class="social-header">
   <div class="social-header-content">
     <div class="logo">
@@ -108,23 +111,31 @@
       <div class="logo-text">KHUSHI NANDWANI</div>
     </div>
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/khushi-nandwani/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://github.com/Knandwani07" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://dev.to/khushi_nandwani07" target="_blank"><i class="fab fa-dev"></i></a>
-      <a href="https://medium.com/@khushinandwanii" target="_blank"><i class="fab fa-medium-m"></i></a>
-      <a href="https://substack.com/@knandwani07" target="_blank"><i class="fas fa-newspaper"></i></a>
-      <a href="https://builder.aws.com/community/@khushi07" target="_blank"><i class="fab fa-aws"></i></a>
+      <a href="https://www.linkedin.com/in/khushi-nandwani/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Knandwani07" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+      <a href="https://dev.to/khushi_nandwani07" target="_blank" aria-label="Dev.to Profile"><i class="fab fa-dev"></i></a>
+      <a href="https://medium.com/@khushinandwanii" target="_blank" aria-label="Medium Profile"><i class="fab fa-medium-m"></i></a>
+      <a href="https://substack.com/@knandwani07" target="_blank" aria-label="Substack Profile"><i class="fas fa-newspaper"></i></a>
+      <a href="https://builder.aws.com/community/@khushi07" target="_blank" aria-label="AWS Builder Community Profile"><i class="fab fa-aws"></i></a>
     </div>
   </div>
 </header>
 
-<section class="hero-section">
+<!-- HERO SECTION -->
+<section class="hero-section" id="main-content">
   <div class="hero-container">
     <div class="hero-grid">
+
       <div class="hero-left">
         <div class="status-bar"><span class="status-dot"></span>BUILDING THE CLOUD, ONE COMMIT AT A TIME</div>
+
         <h1 class="hero-title"><span>KHUSHI</span><span>NANDWANI</span></h1>
-        <p class="hero-subtitle">Designing <span class="highlight">scalable cloud systems</span>, automating infrastructure, and writing documentation engineers trust.</p>
+
+        <p class="hero-subtitle">
+          Designing <span class="highlight">scalable cloud systems</span>,
+          automating infrastructure, and writing documentation engineers trust.
+        </p>
+
         <div class="terminal-box">
           <div class="terminal-header">
             <div class="terminal-btn red"></div>
@@ -150,36 +161,110 @@
         <div class="metric"><div class="metric-label">Focus</div><div class="metric-value">AWS & DevOps</div></div>
         <div class="metric"><div class="metric-label">Strength</div><div class="metric-value">Architecture & Docs</div></div>
         <div class="metric"><div class="metric-label">Community</div><div class="metric-value">AWS Builder</div></div>
+        
         <div class="card-cta-group">
-          <a href="./project.html" class="card-btn">VIEW PROJECTS</a>
+          <a href="project.html" class="card-btn">VIEW PROJECTS</a>
           <button class="card-btn" onclick="openModal()">CONTACT ME</button>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- EXPLORE MORE SECTION -->
 <section class="explore-section">
   <div class="explore-container">
     <div class="section-header">
       <h2 class="section-title">Explore More</h2>
       <p class="section-subtitle">// Discover my journey, skills & achievements</p>
     </div>
+
     <div class="explore-grid">
-      <div class="explore-card"><a href="./about_me.html"><div class="explore-icon">👤</div><h3>About Me</h3><p>Learn about my background, passions, and what drives me in cloud engineering</p></a></div>
-      <div class="explore-card"><a href="./skills.html"><div class="explore-icon">⚙️</div><h3>Skills</h3><p>Technical expertise in AWS, DevOps tools, and cloud architecture</p></a></div>
-      <div class="explore-card"><a href="./learning.html"><div class="explore-icon">📚</div><h3>Learning</h3><p>Continuous learning journey and certifications in cloud technologies</p></a></div>
-      <div class="explore-card"><a href="./project.html"><div class="explore-icon">🚀</div><h3>Projects</h3><p>Hands-on cloud projects and real-world implementations</p></a></div>
-      <div class="explore-card"><a href="./experience.html"><div class="explore-icon">💼</div><h3>Experience</h3><p>Professional journey and roles in cloud and DevOps engineering</p></a></div>
-      <div class="explore-card"><a href="./education.html"><div class="explore-icon">🎓</div><h3>Education</h3><p>Academic background and educational qualifications</p></a></div>
-      <div class="explore-card"><a href="./certificate.html"><div class="explore-icon">📜</div><h3>Certificates</h3><p>Professional certifications and credentials earned</p></a></div>
-      <div class="explore-card"><a href="./achievements.html"><div class="explore-icon">🏆</div><h3>Achievements</h3><p>Milestones, awards, and recognition received</p></a></div>
-      <div class="explore-card"><a href="./honors.html"><div class="explore-icon">⭐</div><h3>Honors</h3><p>Special recognitions and distinguished accomplishments</p></a></div>
-      <div class="explore-card"><a href="./blogs.html"><div class="explore-icon">✍️</div><h3>Blogs</h3><p>Technical articles, tutorials, and thought leadership content</p></a></div>
+      <div class="explore-card">
+        <a href="about_me.html">
+          <div class="explore-icon">👤</div>
+          <h3>About Me</h3>
+          <p>Learn about my background, passions, and what drives me in cloud engineering</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="skills.html">
+          <div class="explore-icon">⚙️</div>
+          <h3>Skills</h3>
+          <p>Technical expertise in AWS, DevOps tools, and cloud architecture</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="learning.html">
+          <div class="explore-icon">📚</div>
+          <h3>Learning</h3>
+          <p>Continuous learning journey and certifications in cloud technologies</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="project.html">
+          <div class="explore-icon">🚀</div>
+          <h3>Projects</h3>
+          <p>Hands-on cloud projects and real-world implementations</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="experience.html">
+          <div class="explore-icon">💼</div>
+          <h3>Experience</h3>
+          <p>Professional journey and roles in cloud and DevOps engineering</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="education.html">
+          <div class="explore-icon">🎓</div>
+          <h3>Education</h3>
+          <p>Academic background and educational qualifications</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="certificate.html">
+          <div class="explore-icon">📜</div>
+          <h3>Certificates</h3>
+          <p>Professional certifications and credentials earned</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="achievements.html">
+          <div class="explore-icon">🏆</div>
+          <h3>Achievements</h3>
+          <p>Milestones, awards, and recognition received</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="honors.html">
+          <div class="explore-icon">⭐</div>
+          <h3>Honors</h3>
+          <p>Special recognitions and distinguished accomplishments</p>
+        </a>
+      </div>
+
+      <div class="explore-card">
+        <a href="blogs.html">
+          <div class="explore-icon">✍️</div>
+          <h3>Blogs</h3>
+          <p>Technical articles, tutorials, and thought leadership content</p>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT MODAL -->
 <div class="modal" id="contactModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">×</button>
@@ -189,15 +274,42 @@
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
   <p>© 2025 <span>Khushi Nandwani</span> • Built with ⚡ & ☁️</p>
 </footer>
 
 <script>
-  function openModal() { document.getElementById('contactModal').classList.add('active'); }
-  function closeModal() { document.getElementById('contactModal').classList.remove('active'); const btn = document.querySelector('.copy-btn'); btn.textContent = 'Copy Email'; btn.classList.remove('copied'); }
-  function copyEmail() { const email = document.getElementById('emailText').textContent; navigator.clipboard.writeText(email).then(() => { const btn = document.querySelector('.copy-btn'); btn.textContent = 'Copied!'; btn.classList.add('copied'); setTimeout(() => { btn.textContent = 'Copy Email'; btn.classList.remove('copied'); }, 2000); }); }
-  document.getElementById('contactModal').addEventListener('click', function(e) { if (e.target === this) { closeModal(); } });
+  function openModal() {
+    document.getElementById('contactModal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('contactModal').classList.remove('active');
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copy Email';
+    btn.classList.remove('copied');
+  }
+
+  function copyEmail() {
+    const email = document.getElementById('emailText').textContent;
+    navigator.clipboard.writeText(email).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy Email';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // Close modal when clicking outside
+  document.getElementById('contactModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
 </script>
 
 </body>
