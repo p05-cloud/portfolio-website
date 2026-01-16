@@ -3,20 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Achievements - Khushi Nandwani</title>
+  <meta name="description" content="Pushpak Patil - Achievements & Recognition in Cloud Architecture, AWS, and Enterprise Platform Delivery" />
+  <meta name="keywords" content="Cloud Architect Awards, AWS Recognition, BFSI Cloud, Platform Excellence, Leadership Award" />
+  <meta name="author" content="Pushpak Patil" />
+  <title>Achievements - Pushpak Patil | Cloud Solution Architect</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
       background: #000;
       color: #e0e0e0;
-      min-height: 100vh;
       overflow-x: hidden;
+    }
+
+    ::selection {
+      background: rgba(0, 255, 255, 0.3);
+      color: #fff;
     }
 
     /* ===== THEME BACKGROUND ===== */
@@ -25,6 +36,24 @@
       inset: 0;
       background: #000;
       z-index: -2;
+    }
+
+    .circuit-background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(0, 255, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255, 0, 255, 0.04) 0%, transparent 50%);
+      animation: backgroundPulse 15s ease-in-out infinite;
+    }
+
+    @keyframes backgroundPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
     }
 
     .glitch-overlay {
@@ -40,16 +69,23 @@
       z-index: -1;
     }
 
-    /* Navbar */
+    /* ===== NAVBAR ===== */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
       background: rgba(0,0,0,0.85);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       z-index: 1000;
       padding: 1.2rem 0;
       border-bottom: 1px solid rgba(0,255,255,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      background: rgba(0,0,0,0.95);
     }
 
     .nav-container {
@@ -67,6 +103,11 @@
       font-weight: 700;
       font-size: clamp(1.1rem, 3vw, 1.5rem);
       text-shadow: 0 0 20px rgba(0,255,255,0.5);
+      transition: all 0.3s ease;
+    }
+
+    .logo a:hover {
+      text-shadow: 0 0 30px rgba(0,255,255,0.8);
     }
 
     .nav-back {
@@ -81,20 +122,22 @@
       text-decoration: none;
       font-weight: 600;
       font-size: clamp(0.8rem, 2vw, 0.95rem);
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
       white-space: nowrap;
     }
 
     .nav-back:hover {
       background: rgba(0,255,255,0.15);
       transform: translateX(-5px);
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
     }
 
-    /* Hero */
+    /* ===== HERO SECTION ===== */
     .hero-section {
-      padding: 140px 2rem 60px;
-      max-width: 1400px;
-      margin: auto;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 140px 20px 60px;
+      text-align: center;
     }
 
     .hero-label {
@@ -108,75 +151,151 @@
       letter-spacing: 2px;
       margin-bottom: 1.5rem;
       text-transform: uppercase;
+      font-family: 'Fira Code', monospace;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-title {
-      font-size: clamp(2rem, 8vw, 4.5rem);
+      font-size: clamp(2rem, 8vw, 4.0rem);
       font-weight: 800;
       margin-bottom: 1.5rem;
-      background: linear-gradient(90deg,#00ffff,#ff00ff);
+      background: linear-gradient(90deg, #00ffff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       word-wrap: break-word;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-description {
-      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-      color: #999;
-      max-width: 900px;
-      line-height: 1.8;
-      margin-bottom: 3rem;
-      word-wrap: break-word;
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      line-height: 1.7;
+      color: #aaa;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
     }
 
-    .hero-metrics {
+    .hero-divider {
+      width: 80px;
+      height: 3px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, #00ffff, #ff00ff);
+      border-radius: 2px;
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+    }
+
+    /* ===== STATS SUMMARY ===== */
+    .stats-summary {
+      max-width: 800px;
+      margin: 0 auto 3rem;
       display: flex;
+      justify-content: center;
+      gap: 3rem;
       flex-wrap: wrap;
-      gap: 2rem;
+      animation: fadeInUp 0.6s ease-out 0.8s both;
     }
 
-    .hero-metrics > div {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
+    .summary-stat {
+      text-align: center;
     }
 
-    .metric-value {
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      font-weight: 700;
-      color: #00ffff;
+    .summary-stat-value {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
     }
 
-    .metric-label {
-      font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    .summary-stat-label {
+      font-size: 0.8rem;
       color: #666;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.3rem;
     }
 
-    /* Achievements */
+    /* ===== ACHIEVEMENTS CONTAINER ===== */
     .achievements-container {
-      max-width: 1400px;
+      max-width: 1100px;
       margin: auto;
-      padding: 60px 2rem 120px;
+      padding: 0 2rem 120px;
     }
 
+    /* ===== ACHIEVEMENT CARD ===== */
     .achievement-card {
       background: rgba(10,10,20,0.6);
       border: 1px solid rgba(0,255,255,0.2);
       border-radius: 25px;
       overflow: hidden;
       margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
 
+    .achievement-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .achievement-card:hover {
+      border-color: rgba(0,255,255,0.4);
+      box-shadow: 0 10px 40px rgba(0,255,255,0.1);
+    }
+
+    /* Card Header */
     .achievement-header-section {
       padding: 2.5rem;
-      background: linear-gradient(135deg,rgba(0,255,255,0.1),rgba(255,0,255,0.05));
+      background: linear-gradient(135deg, rgba(0,255,255,0.08), rgba(255,0,255,0.04));
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achievement-header-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(0,255,255,0.05), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .achievement-card:hover .achievement-header-section::before {
+      transform: translateX(100%);
     }
 
     .achievement-header-content {
@@ -189,17 +308,30 @@
       gap: 0.5rem;
       align-items: center;
       padding: 0.4rem 1rem;
-      background: linear-gradient(135deg,#00ffff,#00cccc);
+      background: linear-gradient(135deg, #00ffff, #00cccc);
       color: #000;
       font-size: clamp(0.6rem, 1.5vw, 0.7rem);
       border-radius: 50px;
       text-transform: uppercase;
       font-weight: 700;
       margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .achievement-tag.leadership {
+      background: linear-gradient(135deg, #00ffff, #00cccc);
+    }
+
+    .achievement-tag.mission-critical {
+      background: linear-gradient(135deg, #ff00ff, #cc00cc);
+    }
+
+    .achievement-tag.early-impact {
+      background: linear-gradient(135deg, #00ff88, #00cc66);
     }
 
     .achievement-name {
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
       font-weight: 700;
       color: #fff;
       display: flex;
@@ -208,16 +340,40 @@
       gap: 0.8rem;
       margin-bottom: 0.5rem;
       word-wrap: break-word;
+      line-height: 1.3;
     }
 
     .achievement-org {
       color: #888;
       font-size: clamp(0.8rem, 2vw, 1rem);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .achievement-org i {
+      color: #00ffff;
+      font-size: 0.8rem;
+    }
+
+    .achievement-year {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(0,255,255,0.1);
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 20px;
+      color: #00ffff;
+      font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      margin-left: 0.5rem;
     }
 
     .achievement-logo {
-      width: clamp(80px, 15vw, 120px);
-      height: clamp(80px, 15vw, 120px);
+      width: clamp(80px, 15vw, 100px);
+      height: clamp(80px, 15vw, 100px);
       background: rgba(0,255,255,0.08);
       border: 2px solid rgba(0,255,255,0.3);
       border-radius: 20px;
@@ -225,55 +381,17 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      font-size: 2.5rem;
+      transition: all 0.3s ease;
     }
 
-    .achievement-logo img {
-      max-width: 85%;
-      max-height: 85%;
-      border-radius: 10px;
-      object-fit: contain;
+    .achievement-card:hover .achievement-logo {
+      transform: scale(1.05) rotate(3deg);
+      border-color: rgba(0,255,255,0.5);
+      box-shadow: 0 0 30px rgba(0,255,255,0.2);
     }
 
-    /* Stats Section */
-    .achievement-stats {
-      display: flex;
-      justify-content: space-around;
-      padding: 2rem;
-      background: rgba(0,0,0,0.3);
-      border-top: 1px solid rgba(0,255,255,0.15);
-      border-bottom: 1px solid rgba(0,255,255,0.15);
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .stat-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-width: 140px;
-      flex: 1;
-    }
-
-    .stat-value {
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 800;
-      background: linear-gradient(90deg,#00ffff,#ff00ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: clamp(0.7rem, 1.8vw, 0.85rem);
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 500;
-    }
-
+    /* Card Body */
     .achievement-body {
       padding: 2.5rem;
       display: grid;
@@ -284,15 +402,36 @@
     .achievement-content p {
       line-height: 1.9;
       color: #b0b0b0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       font-size: clamp(0.85rem, 2vw, 1rem);
       word-wrap: break-word;
+    }
+
+    .achievement-content p:last-of-type {
+      margin-bottom: 0;
     }
 
     .achievement-content strong {
       color: #00ffff;
     }
 
+    /* Impact Section */
+    .achievement-impact {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      background: rgba(0,255,255,0.03);
+      border-left: 3px solid rgba(0, 255, 255, 0.5);
+      border-radius: 0 10px 10px 0;
+      font-size: 0.9rem;
+      color: #9bdcff;
+    }
+
+    .achievement-impact strong {
+      color: #00ffff;
+      font-weight: 600;
+    }
+
+    /* Highlights Section */
     .achievement-highlights {
       background: rgba(0,255,255,0.03);
       border: 1px solid rgba(0,255,255,0.15);
@@ -307,6 +446,11 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      color: #fff;
+    }
+
+    .highlights-title i {
+      color: #00ffff;
     }
 
     .highlight-item {
@@ -318,18 +462,59 @@
       color: #aaa;
       font-size: clamp(0.8rem, 2vw, 0.95rem);
       word-wrap: break-word;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-item:hover {
+      border-left-color: #ff00ff;
+      color: #ccc;
+      padding-left: 1rem;
     }
 
     .highlight-item:last-child {
       margin-bottom: 0;
     }
 
-    /* HOME BUTTON - Matches Experience Page Style */
+    /* Skills Tags */
+    .achievement-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,255,255,0.1);
+    }
+
+    .skill-tag {
+      padding: 0.4rem 0.9rem;
+      background: rgba(0,255,255,0.08);
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: #00ffff;
+      font-family: 'Fira Code', monospace;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(0,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ===== HOME BUTTON ===== */
     .home-button {
       position: fixed;
       bottom: 30px;
       right: 30px;
       z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .home-button.visible {
+      opacity: 1;
+      visibility: visible;
     }
 
     .home-button a {
@@ -352,7 +537,7 @@
       box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
     }
 
-    /* Responsive Breakpoints */
+    /* ===== RESPONSIVE ===== */
     @media (min-width: 900px) {
       .achievement-body {
         grid-template-columns: 1.5fr 1fr;
@@ -370,7 +555,7 @@
       }
 
       .hero-section { 
-        padding: 110px 1rem 40px; 
+        padding: 120px 1rem 40px; 
       }
 
       .hero-label { 
@@ -383,15 +568,16 @@
       }
 
       .hero-description { 
-        margin-bottom: 2rem; 
+        margin-bottom: 1.5rem; 
       }
 
-      .hero-metrics { 
-        gap: 1.5rem; 
+      .stats-summary {
+        gap: 2rem;
+        margin-bottom: 2rem;
       }
 
       .achievements-container { 
-        padding: 40px 1rem 80px; 
+        padding: 20px 1rem 80px; 
       }
 
       .achievement-card { 
@@ -413,17 +599,12 @@
         justify-content: center;
       }
 
+      .achievement-org {
+        justify-content: center;
+      }
+
       .achievement-logo {
         margin: 0 auto;
-      }
-
-      .achievement-stats {
-        padding: 1.5rem 1rem;
-        gap: 1.2rem;
-      }
-
-      .stat-box {
-        min-width: 100px;
       }
 
       .achievement-body { 
@@ -449,6 +630,10 @@
         border-left-width: 2px; 
       }
 
+      .achievement-skills {
+        justify-content: center;
+      }
+
       .home-button {
         bottom: 20px;
         right: 20px;
@@ -468,8 +653,8 @@
         padding: 0 0.75rem; 
       }
 
-      .hero-section { 
-        padding: 100px 0.75rem 30px; 
+      .hero-section {
+        padding: 110px 15px 30px;
       }
 
       .hero-label { 
@@ -477,16 +662,29 @@
         margin-bottom: 0.8rem; 
       }
 
-      .hero-description { 
-        margin-bottom: 1.5rem; 
+      .hero-title {
+        margin-bottom: 0.8rem;
       }
 
-      .hero-metrics { 
-        gap: 1.2rem; 
+      .hero-description { 
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .stats-summary {
+        gap: 1.5rem;
+      }
+
+      .summary-stat-value {
+        font-size: 2rem;
+      }
+
+      .summary-stat-label {
+        font-size: 0.7rem;
       }
 
       .achievements-container { 
-        padding: 30px 0.75rem 60px; 
+        padding: 15px 0.75rem 70px; 
       }
 
       .achievement-card { 
@@ -505,17 +703,22 @@
 
       .achievement-name {
         gap: 0.5rem;
+        font-size: 1.3rem;
       }
 
-      .achievement-stats {
-        padding: 1.2rem 0.75rem;
-        gap: 1rem;
-        flex-direction: column;
+      .achievement-org {
+        font-size: 0.85rem;
       }
 
-      .stat-box {
-        min-width: unset;
-        width: 100%;
+      .achievement-year {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      .achievement-logo {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
       }
 
       .achievement-body { 
@@ -524,7 +727,13 @@
       }
 
       .achievement-content p { 
-        margin-bottom: 0.9rem; 
+        margin-bottom: 0.9rem;
+        font-size: 0.9rem;
+      }
+
+      .achievement-impact {
+        padding: 1rem;
+        font-size: 0.85rem;
       }
 
       .achievement-highlights { 
@@ -540,6 +749,11 @@
         margin-bottom: 0.9rem; 
       }
 
+      .skill-tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.7rem;
+      }
+
       .home-button {
         bottom: 15px;
         right: 15px;
@@ -548,6 +762,7 @@
       .home-button a {
         padding: 10px 18px;
         gap: 8px;
+        font-size: 0.85rem;
       }
     }
 
@@ -557,19 +772,15 @@
       }
 
       .hero-section { 
-        padding: 95px 0.5rem 25px; 
+        padding: 100px 10px 25px; 
       }
 
       .achievements-container { 
-        padding: 25px 0.5rem 50px; 
+        padding: 10px 0.5rem 60px; 
       }
 
       .achievement-header-section { 
         padding: 1rem;
-      }
-
-      .achievement-stats {
-        padding: 1rem 0.5rem;
       }
 
       .achievement-body { 
@@ -588,86 +799,252 @@
 <div class="circuit-background"></div>
 <div class="glitch-overlay"></div>
 
-<nav class="navbar">
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
   <div class="nav-container">
-    <div class="logo"><a href="index.html">Khushi Nandwani</a></div>
+    <div class="logo"><a href="index.html">Pushpak Patil</a></div>
     <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> <span>Back to Home</span></a>
   </div>
 </nav>
 
+<!-- HERO SECTION -->
 <section class="hero-section">
   <span class="hero-label">Recognition & Impact</span>
-  <h1 class="hero-title">Achievements</h1>
+  <h1 class="hero-title">Achievements & Recognition</h1>
   <p class="hero-description">
-    Celebrating milestones earned through dedication to cloud innovation, continuous learning,
-    and meaningful contributions to the global tech community.
+    Recognition earned through execution excellence, platform ownership, and measurable impact
+    across production cloud environments.
   </p>
+  <div class="hero-divider"></div>
+  
+  <!-- Stats Summary -->
+  <div class="stats-summary">
+    <div class="summary-stat">
+      <div class="summary-stat-value">3</div>
+      <div class="summary-stat-label">Awards Earned</div>
+    </div>
+    <div class="summary-stat">
+      <div class="summary-stat-value">3+</div>
+      <div class="summary-stat-label">Years of Impact</div>
+    </div>
+    <div class="summary-stat">
+      <div class="summary-stat-value">100%</div>
+      <div class="summary-stat-label">Client Retention</div>
+    </div>
+  </div>
 </section>
 
+<!-- ACHIEVEMENTS -->
 <section class="achievements-container">
 
-  <div class="achievement-card">
+  <!-- Achievement 1: Organisational Growth Leader (2024-2025) -->
+  <article class="achievement-card">
     <div class="achievement-header-section">
       <div class="achievement-header-content">
-        <span class="achievement-tag"><i class="fas fa-award"></i> Community Leadership</span>
+        <span class="achievement-tag leadership">
+          <i class="fas fa-chart-line"></i> Leadership & Scale
+        </span>
         <h2 class="achievement-name">
-          AWS Community Builder
-          <i class="fab fa-aws" style="color:#00ffff;"></i>
+          Organisational Growth Leader Award
         </h2>
-        <p class="achievement-org">Amazon Web Services</p>
+        <p class="achievement-org">
+          <i class="fas fa-building"></i> Applied Cloud Computing
+          <span class="achievement-year"><i class="fas fa-calendar-alt"></i> 2024 – 2025</span>
+        </p>
       </div>
-      <div class="achievement-logo">
-        <img src="images/awscb.jpg" alt="AWS Community Builder Badge">
-      </div>
+      <div class="achievement-logo">📈</div>
     </div>
-
-    <div class="achievement-stats">
-      <div class="stat-box">
-        <div class="stat-value">2025</div>
-        <div class="stat-label">Year Selected</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-value">Global</div>
-        <div class="stat-label">Recognition</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-value">Active</div>
-        <div class="stat-label">Community Builder</div>
-      </div>
-    </div>
-
+  
     <div class="achievement-body">
       <div class="achievement-content">
         <p>
-          Proudly selected as an <strong>AWS Community Builder</strong>, a prestigious recognition
-          awarded to passionate cloud advocates who actively contribute to the AWS ecosystem.
+          Awarded for <strong>strategic contributions</strong> that directly supported organizational growth
+          across multiple cloud initiatives.
         </p>
         <p>
-          This invitation-only program celebrates professionals who demonstrate exceptional
-          commitment to knowledge sharing and community growth.
+          Recognized for driving <strong>scalable cloud architecture</strong>, automation, and platform reliability
+          while influencing outcomes beyond individual projects.
         </p>
-        <p>
-          As a Community Builder, I collaborate with global experts and gain early insights into AWS innovations.
-        </p>
+        
+        <div class="achievement-impact">
+          <strong>Impact:</strong> Platform decisions and automation patterns adopted across teams,
+          influencing cloud reliability, scalability, and delivery velocity beyond a single project.
+        </div>
+
+        <div class="achievement-skills">
+          <span class="skill-tag">Cloud Architecture</span>
+          <span class="skill-tag">Team Leadership</span>
+          <span class="skill-tag">Platform Reliability</span>
+          <span class="skill-tag">Automation</span>
+        </div>
       </div>
 
       <div class="achievement-highlights">
-        <h3 class="highlights-title"><i class="fas fa-star"></i> Key Benefits</h3>
-        <div class="highlight-item">Official AWS recognition and badge</div>
-        <div class="highlight-item">Access to AWS product teams</div>
-        <div class="highlight-item">Early access to new features</div>
-        <div class="highlight-item">Global networking opportunities</div>
-        <div class="highlight-item">Invitations to AWS events</div>
+        <h3 class="highlights-title"><i class="fas fa-star"></i> Key Contributions</h3>
+        <div class="highlight-item">Drove scalable cloud architecture across multiple initiatives</div>
+        <div class="highlight-item">Established automation patterns adopted organization-wide</div>
+        <div class="highlight-item">Improved platform reliability and delivery velocity</div>
+        <div class="highlight-item">Influenced strategic decisions beyond individual projects</div>
       </div>
     </div>
-  </div>
+  </article>
+
+  <!-- Achievement 2: Anchor Project Excellence (2024-2025) -->
+  <article class="achievement-card">
+    <div class="achievement-header-section">
+      <div class="achievement-header-content">
+        <span class="achievement-tag mission-critical">
+          <i class="fas fa-shield-alt"></i> Mission-Critical Delivery
+        </span>
+        <h2 class="achievement-name">
+          Anchor Project Excellence Award
+        </h2>
+        <p class="achievement-org">
+          <i class="fas fa-building"></i> Applied Cloud Computing · ZUNO Project
+          <span class="achievement-year"><i class="fas fa-calendar-alt"></i> 2024 – 2025</span>
+        </p>
+      </div>
+      <div class="achievement-logo">🛡️</div>
+    </div>
+  
+    <div class="achievement-body">
+      <div class="achievement-content">
+        <p>
+          Recognized for <strong>consistent reliability</strong>, accountability, and execution excellence
+          in supporting the ZUNO production platform.
+        </p>
+        <p>
+          Contributions strengthened <strong>system stability</strong>, delivery performance, and client
+          confidence in a high-stakes enterprise environment.
+        </p>
+        
+        <div class="achievement-impact">
+          <strong>Impact:</strong> Sustained ownership of a high-risk production environment,
+          directly impacting uptime, client trust, and operational continuity.
+        </div>
+
+        <div class="achievement-skills">
+          <span class="skill-tag">BFSI</span>
+          <span class="skill-tag">Production Support</span>
+          <span class="skill-tag">System Stability</span>
+          <span class="skill-tag">Enterprise Delivery</span>
+        </div>
+      </div>
+
+      <div class="achievement-highlights">
+        <h3 class="highlights-title"><i class="fas fa-star"></i> Key Contributions</h3>
+        <div class="highlight-item">Maintained high-availability for mission-critical BFSI platform</div>
+        <div class="highlight-item">Delivered consistent reliability in high-stakes environment</div>
+        <div class="highlight-item">Strengthened client confidence through execution excellence</div>
+        <div class="highlight-item">Ensured operational continuity for enterprise workloads</div>
+      </div>
+    </div>
+  </article>
+  
+    <!-- Achievement 3: Rookie of the Year (2023) -->
+  <article class="achievement-card">
+    <div class="achievement-header-section">
+      <div class="achievement-header-content">
+        <span class="achievement-tag early-impact">
+          <i class="fas fa-bolt"></i> Early Impact
+        </span>
+        <h2 class="achievement-name">
+          Rookie of the Year
+        </h2>
+        <p class="achievement-org">
+          <i class="fas fa-building"></i> Applied Cloud Computing
+          <span class="achievement-year"><i class="fas fa-calendar-alt"></i> 2023</span>
+        </p>
+      </div>
+      <div class="achievement-logo">🏆</div>
+    </div>
+  
+    <div class="achievement-body">
+      <div class="achievement-content">
+        <p>
+          Recognized for <strong>rapid ramp-up</strong> and high-impact ownership of production AWS environments
+          within the first year at Applied Cloud Computing.
+        </p>
+        <p>
+          Contributions included <strong>cloud cost optimization</strong>, automation of operational workflows,
+          and effective incident resolution in live production systems.
+        </p>
+        
+        <div class="achievement-impact">
+          <strong>Impact:</strong> Demonstrated senior-level production ownership within the first year,
+          accelerating trust and responsibility far ahead of typical onboarding timelines.
+        </div>
+
+        <div class="achievement-skills">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Cost Optimization</span>
+          <span class="skill-tag">Automation</span>
+          <span class="skill-tag">Incident Response</span>
+        </div>
+      </div>
+
+      <div class="achievement-highlights">
+        <h3 class="highlights-title"><i class="fas fa-star"></i> Key Contributions</h3>
+        <div class="highlight-item">Achieved production-level AWS ownership in under 12 months</div>
+        <div class="highlight-item">Implemented cost optimization strategies across client accounts</div>
+        <div class="highlight-item">Automated repetitive operational workflows</div>
+        <div class="highlight-item">Resolved critical incidents in live production environments</div>
+      </div>
+    </div>
+  </article>
+
 
 </section>
 
 <!-- HOME BUTTON -->
-<div class="home-button">
+<div class="home-button" id="homeButton">
   <a href="index.html"><i class="fas fa-home"></i> Home</a>
 </div>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const homeButton = document.getElementById('homeButton');
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    
+    // Show/hide home button
+    if (window.scrollY > 300) {
+      homeButton.classList.add('visible');
+    } else {
+      homeButton.classList.remove('visible');
+    }
+  });
+
+  // Intersection Observer for card animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all achievement cards
+  document.querySelectorAll('.achievement-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // Add staggered animation delay
+  document.querySelectorAll('.achievement-card').forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.15}s`;
+  });
+</script>
 
 </body>
 </html>

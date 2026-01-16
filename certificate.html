@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Certifications - Khushi Nandwani</title>
+  <meta name="description" content="Pushpak Patil - AWS Certifications including Security Specialty, Solutions Architect Associate, and Cloud Practitioner">
+  <meta name="keywords" content="AWS Certified, Security Specialty, Solutions Architect Associate, Cloud Practitioner, Cloud Certifications">
+  <meta name="author" content="Pushpak Patil">
+  <title>Certifications | Pushpak Patil</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -20,6 +27,11 @@
       color: #ffffff;
       overflow-x: hidden;
       min-height: 100vh;
+    }
+
+    ::selection {
+      background: rgba(0, 255, 255, 0.3);
+      color: #fff;
     }
 
     .container {
@@ -38,6 +50,14 @@
       z-index: 1000;
       padding: 1.2rem 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      background: rgba(0, 0, 0, 0.98);
+      box-shadow: 0 4px 30px rgba(0, 255, 255, 0.1);
     }
 
     .nav-container {
@@ -192,6 +212,7 @@
       background-clip: text;
       display: block;
       margin-bottom: 15px;
+      font-family: 'Fira Code', monospace;
     }
 
     .cert-stat p {
@@ -200,7 +221,7 @@
       line-height: 1.5;
     }
 
-    /* Certification Section - ONE PER ROW HORIZONTAL LAYOUT */
+    /* Certification Section */
     .cert-section {
       padding: 60px 40px 140px;
     }
@@ -254,6 +275,52 @@
       border-color: rgba(0, 255, 255, 0.5);
     }
 
+    /* Level-specific card styling */
+    .cert-card.specialty {
+      border-color: rgba(255, 0, 102, 0.2);
+    }
+    .cert-card.specialty:hover {
+      border-color: rgba(255, 0, 102, 0.5);
+      box-shadow: 0 25px 50px rgba(255, 0, 102, 0.2);
+    }
+    .cert-card.specialty .cert-tag {
+      background: rgba(255, 0, 102, 0.15);
+      border-color: rgba(255, 0, 102, 0.3);
+      color: #ff0066;
+    }
+    .cert-card.specialty .cert-image-container {
+      background: linear-gradient(135deg, rgba(255, 0, 102, 0.1), rgba(30, 0, 60, 0.2));
+    }
+
+    .cert-card.associate {
+      border-color: rgba(255, 153, 0, 0.2);
+    }
+    .cert-card.associate:hover {
+      border-color: rgba(255, 153, 0, 0.5);
+      box-shadow: 0 25px 50px rgba(255, 153, 0, 0.2);
+    }
+    .cert-card.associate .cert-tag {
+      background: rgba(255, 153, 0, 0.15);
+      border-color: rgba(255, 153, 0, 0.3);
+      color: #ff9900;
+    }
+    .cert-card.associate .cert-image-container {
+      background: linear-gradient(135deg, rgba(255, 153, 0, 0.1), rgba(30, 30, 0, 0.2));
+    }
+
+    .cert-card.foundational {
+      border-color: rgba(0, 255, 255, 0.2);
+    }
+    .cert-card.foundational:hover {
+      border-color: rgba(0, 255, 255, 0.5);
+      box-shadow: 0 25px 50px rgba(0, 255, 255, 0.2);
+    }
+    .cert-card.foundational .cert-tag {
+      background: rgba(0, 255, 255, 0.1);
+      border-color: rgba(0, 255, 255, 0.3);
+      color: #00ffff;
+    }
+
     .cert-image-container {
       position: relative;
       width: 320px;
@@ -276,7 +343,7 @@
     }
 
     .cert-image-container img:hover {
-      transform: scale(1.08);
+      transform: scale(1.08) rotate(3deg);
       filter: drop-shadow(0 15px 30px rgba(0, 255, 255, 0.4));
     }
 
@@ -289,7 +356,9 @@
     }
 
     .cert-tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       padding: 8px 18px;
       background: rgba(0, 255, 255, 0.1);
       border: 1px solid rgba(0, 255, 255, 0.3);
@@ -301,6 +370,7 @@
       letter-spacing: 1.5px;
       margin-bottom: 18px;
       width: fit-content;
+      font-family: 'Fira Code', monospace;
     }
 
     .cert-content h2 {
@@ -352,17 +422,39 @@
     }
 
     .cert-points li::before {
-      content: '▹';
+      content: '\25B9';
       position: absolute;
       left: 6px;
       color: #00ffff;
       font-size: 1.1rem;
     }
 
+    .cert-card.specialty .cert-points li {
+      border-left-color: rgba(255, 0, 102, 0.3);
+    }
+    .cert-card.specialty .cert-points li::before {
+      color: #ff0066;
+    }
+
+    .cert-card.associate .cert-points li {
+      border-left-color: rgba(255, 153, 0, 0.3);
+    }
+    .cert-card.associate .cert-points li::before {
+      color: #ff9900;
+    }
+
     .cert-points li:hover {
       border-left-color: #00ffff;
       padding-left: 26px;
       color: #ffffff;
+    }
+
+    .cert-card.specialty .cert-points li:hover {
+      border-left-color: #ff0066;
+    }
+
+    .cert-card.associate .cert-points li:hover {
+      border-left-color: #ff9900;
     }
 
     .btn {
@@ -388,6 +480,123 @@
       color: #000;
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+    }
+
+    .cert-card.specialty .btn {
+      border-color: #ff0066;
+      color: #ff0066;
+    }
+    .cert-card.specialty .btn:hover {
+      background: #ff0066;
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(255, 0, 102, 0.5);
+    }
+
+    .cert-card.associate .btn {
+      border-color: #ff9900;
+      color: #ff9900;
+    }
+    .cert-card.associate .btn:hover {
+      background: #ff9900;
+      color: #000;
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.5);
+    }
+
+    /* Certification Journey Section */
+    .cert-journey {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 40px;
+      background: rgba(10, 10, 25, 0.7);
+      border-radius: 25px;
+      border: 1px solid rgba(0, 255, 255, 0.15);
+    }
+
+    .journey-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+    }
+
+    .journey-title i {
+      color: #00ffff;
+    }
+
+    .journey-path {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .journey-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 25px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      min-width: 160px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .journey-step:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 255, 0.5);
+    }
+
+    .journey-step.completed::after {
+      content: '\2713';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 28px;
+      height: 28px;
+      background: #00ff88;
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .journey-step.foundational { border-color: rgba(0, 255, 255, 0.3); }
+    .journey-step.associate { border-color: rgba(255, 153, 0, 0.3); }
+    .journey-step.specialty { border-color: rgba(255, 0, 102, 0.3); }
+
+    .journey-step i {
+      font-size: 2rem;
+    }
+
+    .journey-step.foundational i { color: #00ffff; }
+    .journey-step.associate i { color: #ff9900; }
+    .journey-step.specialty i { color: #ff0066; }
+
+    .journey-step span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .journey-step small {
+      font-size: 0.75rem;
+      color: #666;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .journey-arrow {
+      color: #333;
+      font-size: 1.5rem;
     }
 
     /* Modal */
@@ -418,14 +627,8 @@
     }
 
     @keyframes modalZoomIn {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .modal-content img {
@@ -468,6 +671,14 @@
       bottom: 40px;
       right: 40px;
       z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .home-button.visible {
+      opacity: 1;
+      visibility: visible;
     }
 
     .home-button a {
@@ -492,14 +703,8 @@
 
     /* Animations */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Responsive - Tablet */
@@ -524,6 +729,15 @@
 
       .cert-points li {
         flex: 1 1 100%;
+      }
+
+      .journey-path {
+        gap: 15px;
+      }
+
+      .journey-step {
+        min-width: 140px;
+        padding: 15px 20px;
       }
     }
 
@@ -569,29 +783,23 @@
       }
 
       .cert-stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 15px;
         margin: 50px auto;
         padding: 0 20px;
       }
 
       .cert-stat {
-        padding: 25px 20px;
-      }
-
-      .cert-stat:nth-child(3) {
-        grid-column: 1 / -1;
-        max-width: 60%;
-        margin: 0 auto;
+        padding: 25px 15px;
       }
 
       .cert-stat span {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-bottom: 10px;
       }
 
       .cert-stat p {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
       }
 
       .cert-section {
@@ -655,6 +863,25 @@
         width: 100%;
       }
 
+      .cert-journey {
+        margin: 0 20px 60px;
+        padding: 30px 20px;
+      }
+
+      .journey-path {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .journey-arrow {
+        transform: rotate(90deg);
+      }
+
+      .journey-step {
+        width: 100%;
+        max-width: 200px;
+      }
+
       .home-button {
         bottom: 25px;
         right: 25px;
@@ -693,20 +920,20 @@
       }
 
       .cert-stats {
-        gap: 12px;
+        gap: 10px;
         padding: 0 15px;
       }
 
       .cert-stat {
-        padding: 20px 15px;
+        padding: 20px 10px;
       }
 
       .cert-stat span {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
       }
 
       .cert-stat p {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
       }
 
       .cert-section {
@@ -753,6 +980,15 @@
         font-size: 0.85rem;
       }
 
+      .cert-journey {
+        margin: 0 15px 50px;
+        padding: 25px 15px;
+      }
+
+      .journey-title {
+        font-size: 1.2rem;
+      }
+
       .home-button {
         bottom: 20px;
         right: 20px;
@@ -778,13 +1014,12 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar">
+<nav class="navbar" id="navbar">
   <div class="nav-container">
     <div class="nav-inner">
       <div class="logo">
-        <a href="index.html">Khushi Nandwani</a>
+        <a href="index.html">Pushpak Patil</a>
       </div>
-
       <a href="index.html" class="nav-back">
         <i class="fas fa-arrow-left"></i>
         Back to Home
@@ -799,9 +1034,9 @@
     <h1 class="cert-title">Certifications</h1>
     <div class="title-underline"></div>
     <p class="cert-subtitle">
-      I view certifications as a way to strengthen architectural thinking and
-      decision-making. Each certification reflects hands-on learning,
-      practical exposure, and continuous improvement.
+      Certifications validate my expertise in cloud architecture, security, and AWS services.
+      Each certification reflects hands-on learning, real-world application, and continuous improvement
+      in building secure, scalable enterprise solutions.
     </p>
   </div>
 </section>
@@ -813,12 +1048,12 @@
     <p>AWS Certifications</p>
   </div>
   <div class="cert-stat">
-    <span>Cloud & AI</span>
-    <p>Core Focus</p>
+    <span>Security</span>
+    <p>Specialty Focus</p>
   </div>
   <div class="cert-stat">
-    <span>Hands-on</span>
-    <p>Learning Style</p>
+    <span>100%</span>
+    <p>Pass Rate</p>
   </div>
 </div>
 
@@ -826,77 +1061,49 @@
 <section class="cert-section container">
   <div class="cert-list">
     
-    <!-- CERT 1 -->
-    <div class="cert-card">
+    <!-- CERT 1: Security Specialty (Most Recent) -->
+    <div class="cert-card specialty">
       <div class="cert-image-container">
-        <img src="images/ccp.png" alt="AWS Cloud Practitioner Certificate" onclick="openCertificate('images/ccp.png')">
+        <img src="images/aws-security-specialty.png" alt="AWS Security Specialty Certificate" onclick="openCertificate('images/aws-security-specialty.png')">
       </div>
       
       <div class="cert-content">
-        <span class="cert-tag">FOUNDATIONAL</span>
+        <span class="cert-tag"><i class="fas fa-star"></i> SPECIALTY</span>
         
-        <h2>AWS Certified Cloud Practitioner</h2>
+        <h2>AWS Certified Security – Specialty</h2>
         <p>
-          Validates a strong understanding of AWS Cloud concepts, global
-          infrastructure, pricing models, and shared responsibility.
+          Validates advanced expertise in securing AWS workloads, including data protection,
+          infrastructure security, identity management, threat detection, and incident response.
         </p>
 
         <div class="cert-footer">
           <ul class="cert-points">
-            <li>Understand core AWS services and use cases</li>
-            <li>Reason about cost, billing, and support plans</li>
-            <li>Explain cloud security and compliance basics</li>
+            <li>Design secure IAM policies and access controls</li>
+            <li>Implement encryption and key management</li>
+            <li>Configure threat detection and monitoring</li>
+            <li>Automate security incident response</li>
           </ul>
 
-          <button class="btn" onclick="openCertificate('images/ccp.png')">
+          <button class="btn" onclick="openCertificate('images/aws-security-specialty.png')">
             <i class="fas fa-certificate"></i> View Badge
           </button>
         </div>
       </div>
     </div>
 
-    <!-- CERT 2 -->
-    <div class="cert-card">
-      <div class="cert-image-container">
-        <img src="images/ai2.png" alt="AWS AI Practitioner Certificate" onclick="openCertificate('images/ai2.png')">
-      </div>
-      
-      <div class="cert-content">
-        <span class="cert-tag">AI & ML</span>
-        
-        <h2>AWS Certified AI Practitioner</h2>
-        <p>
-          Demonstrates understanding of AI/ML concepts, responsible AI,
-          and AWS services that power intelligent workloads.
-        </p>
-
-        <div class="cert-footer">
-          <ul class="cert-points">
-            <li>Identify AI/ML use cases and constraints</li>
-            <li>Understand responsible AI principles</li>
-            <li>Work with AWS AI services conceptually</li>
-          </ul>
-
-          <button class="btn" onclick="openCertificate('images/ai2.png')">
-            <i class="fas fa-certificate"></i> View Badge
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- CERT 3 -->
-    <div class="cert-card">
+    <!-- CERT 2: Solutions Architect Associate -->
+    <div class="cert-card associate">
       <div class="cert-image-container">
         <img src="images/saa2.png" alt="AWS Solutions Architect Associate Certificate" onclick="openCertificate('images/saa2.png')">
       </div>
       
       <div class="cert-content">
-        <span class="cert-tag">ARCHITECTURE</span>
+        <span class="cert-tag"><i class="fas fa-certificate"></i> ASSOCIATE</span>
         
-        <h2>AWS Solutions Architect – Associate</h2>
+        <h2>AWS Certified Solutions Architect – Associate</h2>
         <p>
           Validates the ability to design secure, scalable, fault-tolerant,
-          and cost-optimized architectures on AWS.
+          and cost-optimized architectures on AWS using best practices.
         </p>
 
         <div class="cert-footer">
@@ -904,6 +1111,7 @@
             <li>Design highly available cloud architectures</li>
             <li>Apply security and networking best practices</li>
             <li>Optimize systems for reliability and cost</li>
+            <li>Select appropriate AWS services for workloads</li>
           </ul>
 
           <button class="btn" onclick="openCertificate('images/saa2.png')">
@@ -913,23 +1121,95 @@
       </div>
     </div>
 
+    <!-- CERT 3: Cloud Practitioner -->
+    <div class="cert-card foundational">
+      <div class="cert-image-container">
+        <img src="images/ccp.png" alt="AWS Cloud Practitioner Certificate" onclick="openCertificate('images/ccp.png')">
+      </div>
+      
+      <div class="cert-content">
+        <span class="cert-tag"><i class="fas fa-cloud"></i> FOUNDATIONAL</span>
+        
+        <h2>AWS Certified Cloud Practitioner</h2>
+        <p>
+          Validates foundational understanding of AWS Cloud concepts, global
+          infrastructure, pricing models, and shared responsibility model.
+        </p>
+
+        <div class="cert-footer">
+          <ul class="cert-points">
+            <li>Understand core AWS services and use cases</li>
+            <li>Reason about cost, billing, and support plans</li>
+            <li>Explain cloud security and compliance basics</li>
+            <li>Navigate the AWS shared responsibility model</li>
+          </ul>
+
+          <button class="btn" onclick="openCertificate('images/ccp.png')">
+            <i class="fas fa-certificate"></i> View Badge
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- CERTIFICATION JOURNEY -->
+<div class="cert-journey">
+  <h3 class="journey-title"><i class="fas fa-route"></i> My AWS Journey</h3>
+  <div class="journey-path">
+    <div class="journey-step foundational completed">
+      <i class="fab fa-aws"></i>
+      <span>Cloud Practitioner</span>
+      <small>2022</small>
+    </div>
+    <i class="fas fa-arrow-right journey-arrow"></i>
+    <div class="journey-step associate completed">
+      <i class="fas fa-drafting-compass"></i>
+      <span>Solutions Architect</span>
+      <small>2023</small>
+    </div>
+    <i class="fas fa-arrow-right journey-arrow"></i>
+    <div class="journey-step specialty completed">
+      <i class="fas fa-shield-alt"></i>
+      <span>Security Specialty</span>
+      <small>2024</small>
+    </div>
+  </div>
+</div>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="certificate-modal">
   <div class="modal-content">
-    <button class="modal-close" onclick="closeCertificate()">×</button>
+    <button class="modal-close" onclick="closeCertificate()">&times;</button>
     <img id="certificate-image" src="" alt="Certificate"/>
   </div>
 </div>
 
 <!-- HOME BUTTON -->
-<div class="home-button">
+<div class="home-button" id="homeButton">
   <a href="index.html"><i class="fas fa-home"></i> Home</a>
 </div>
 
 <script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const homeButton = document.getElementById('homeButton');
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    if (window.scrollY > 300) {
+      homeButton.classList.add('visible');
+    } else {
+      homeButton.classList.remove('visible');
+    }
+  });
+
   function openCertificate(imageSrc) {
     const modal = document.getElementById('certificate-modal');
     const img = document.getElementById('certificate-image');
@@ -976,6 +1256,24 @@
   // Observe cert cards and stats
   document.querySelectorAll('.cert-card, .cert-stat').forEach(item => {
     observer.observe(item);
+  });
+
+  // Animate journey steps
+  document.querySelectorAll('.journey-step').forEach((step, index) => {
+    step.style.opacity = '0';
+    step.style.transform = 'translateY(20px)';
+    step.style.transition = 'all 0.5s ease ' + (index * 0.15) + 's';
+    
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    stepObserver.observe(step);
   });
 </script>
 

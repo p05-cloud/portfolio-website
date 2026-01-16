@@ -3,19 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Learning & Teaching - Khushi Nandwani</title>
+  <meta name="description" content="Pushpak Patil - Learning & Teaching in Cloud Security, AWS, Multi-Cloud, Migrations, and Enterprise Architecture">
+  <meta name="keywords" content="AWS, Cloud Security, Multi-Cloud, Migrations, DR, DevSecOps, Technical Sales, AWS WAR, Mentorship">
+  <meta name="author" content="Pushpak Patil">
+  <title>Learning & Teaching | Pushpak Patil</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Poppins', sans-serif;
       background: #000000;
       color: #ffffff;
       overflow-x: hidden;
+    }
+
+    ::selection {
+      background: rgba(0, 255, 255, 0.3);
+      color: #fff;
     }
 
     /* =========================
@@ -52,6 +62,13 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0,255,255,0.15);
       z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      background: rgba(0,0,0,0.98);
+      box-shadow: 0 4px 30px rgba(0, 255, 255, 0.1);
     }
 
     .nav-inner {
@@ -69,6 +86,11 @@
       font-size: 1.5rem;
       text-decoration: none;
       white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .logo a:hover {
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
     }
 
     .nav-back {
@@ -101,14 +123,35 @@
       z-index: 2;
     }
 
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+    }
+
     .page-title {
       font-size: 3.2rem;
       font-weight: 700;
       background: linear-gradient(135deg, #00ffff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1.2;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .title-underline {
@@ -116,6 +159,12 @@
       height: 3px;
       margin: 1.5rem auto;
       background: linear-gradient(90deg, #00ffff, #ff00ff);
+      animation: expandContract 2s ease-in-out infinite;
+    }
+
+    @keyframes expandContract {
+      0%, 100% { width: 120px; }
+      50% { width: 180px; }
     }
 
     .page-subtitle {
@@ -124,6 +173,8 @@
       color: #bbbbbb;
       font-size: 1.15rem;
       line-height: 1.8;
+      position: relative;
+      z-index: 1;
     }
 
     /* =========================
@@ -143,6 +194,7 @@
       background: linear-gradient(135deg, #00ffff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1.3;
     }
 
@@ -150,6 +202,48 @@
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+    .learning-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .stat-card {
+      background: rgba(0,0,0,0.8);
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0,255,255,0.5);
+      box-shadow: 0 15px 40px rgba(0,255,255,0.2);
+    }
+
+    .stat-card .number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Fira Code', monospace;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card .label {
+      color: #888;
+      font-size: 0.9rem;
     }
 
     /* =========================
@@ -181,6 +275,12 @@
       color: #00ffff;
       margin-bottom: 1rem;
       display: block;
+      transition: all 0.3s ease;
+    }
+
+    .philosophy-card:hover i {
+      transform: scale(1.1);
+      color: #ff00ff;
     }
 
     .philosophy-card h3 {
@@ -194,6 +294,134 @@
       color: #bbbbbb;
       line-height: 1.7;
       font-size: 0.95rem;
+    }
+
+    /* =========================
+       EXPERTISE AREAS
+    ========================= */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .expertise-card {
+      background: rgba(0,0,0,0.8);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: 0.35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .expertise-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .expertise-card:hover::before {
+      left: 100%;
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,255,255,0.3);
+      border-color: rgba(0,255,255,0.4);
+    }
+
+    /* Color variations for expertise cards */
+    .expertise-card.security { border-color: rgba(255, 0, 102, 0.3); }
+    .expertise-card.security:hover { border-color: rgba(255, 0, 102, 0.6); box-shadow: 0 20px 50px rgba(255, 0, 102, 0.2); }
+    .expertise-card.security .expertise-icon { background: rgba(255, 0, 102, 0.15); color: #ff0066; }
+
+    .expertise-card.multicloud { border-color: rgba(0, 200, 255, 0.3); }
+    .expertise-card.multicloud:hover { border-color: rgba(0, 200, 255, 0.6); box-shadow: 0 20px 50px rgba(0, 200, 255, 0.2); }
+    .expertise-card.multicloud .expertise-icon { background: rgba(0, 200, 255, 0.15); color: #00c8ff; }
+
+    .expertise-card.devops { border-color: rgba(0, 255, 136, 0.3); }
+    .expertise-card.devops:hover { border-color: rgba(0, 255, 136, 0.6); box-shadow: 0 20px 50px rgba(0, 255, 136, 0.2); }
+    .expertise-card.devops .expertise-icon { background: rgba(0, 255, 136, 0.15); color: #00ff88; }
+
+    .expertise-card.dr { border-color: rgba(255, 153, 0, 0.3); }
+    .expertise-card.dr:hover { border-color: rgba(255, 153, 0, 0.6); box-shadow: 0 20px 50px rgba(255, 153, 0, 0.2); }
+    .expertise-card.dr .expertise-icon { background: rgba(255, 153, 0, 0.15); color: #ff9900; }
+
+    .expertise-card.sales { border-color: rgba(138, 43, 226, 0.3); }
+    .expertise-card.sales:hover { border-color: rgba(138, 43, 226, 0.6); box-shadow: 0 20px 50px rgba(138, 43, 226, 0.2); }
+    .expertise-card.sales .expertise-icon { background: rgba(138, 43, 226, 0.15); color: #8a2be2; }
+
+    .expertise-card.mentor { border-color: rgba(255, 105, 180, 0.3); }
+    .expertise-card.mentor:hover { border-color: rgba(255, 105, 180, 0.6); box-shadow: 0 20px 50px rgba(255, 105, 180, 0.2); }
+    .expertise-card.mentor .expertise-icon { background: rgba(255, 105, 180, 0.15); color: #ff69b4; }
+
+    .expertise-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .expertise-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(0,255,255,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #00ffff;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .expertise-card:hover .expertise-icon {
+      transform: scale(1.1);
+    }
+
+    .expertise-card h3 {
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.3;
+    }
+
+    .expertise-card p {
+      color: #bbbbbb;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .expertise-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .expertise-tag {
+      padding: 0.4rem 0.8rem;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: #aaa;
+      font-family: 'Fira Code', monospace;
+      transition: all 0.3s ease;
+    }
+
+    .expertise-card:hover .expertise-tag {
+      border-color: rgba(0,255,255,0.4);
+      color: #fff;
     }
 
     /* =========================
@@ -215,6 +443,7 @@
       background: linear-gradient(135deg, #00ffff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1.3;
     }
 
@@ -236,13 +465,19 @@
       position: relative;
       color: #bbbbbb;
       line-height: 1.6;
+      transition: all 0.3s ease;
     }
 
     .platform-points li::before {
-      content: "▹";
+      content: "\25B9";
       position: absolute;
       left: 0;
       color: #00ffff;
+    }
+
+    .platform-points li:hover {
+      color: #fff;
+      padding-left: 1.75rem;
     }
 
     .btn {
@@ -274,6 +509,11 @@
       border-radius: 14px;
       padding: 1.25rem;
       margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .meta-card:hover {
+      border-color: rgba(0,255,255,0.5);
     }
 
     .meta-card span {
@@ -306,6 +546,23 @@
       border-radius: 20px;
       padding: 2rem;
       transition: 0.35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .content-card:hover::before {
+      left: 100%;
     }
 
     .content-card:hover {
@@ -314,12 +571,32 @@
       border-color: rgba(0,255,255,0.4);
     }
 
+    .content-card-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(0,255,255,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #00ffff;
+      margin-bottom: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .content-card:hover .content-card-icon {
+      transform: scale(1.1);
+      background: rgba(0,255,255,0.2);
+    }
+
     .content-card h3 {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       margin-bottom: 1rem;
       background: linear-gradient(135deg, #00ffff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1.3;
     }
 
@@ -335,11 +612,14 @@
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .link:hover {
       color: #ff00ff;
+      gap: 0.75rem;
     }
 
     /* =========================
@@ -360,6 +640,7 @@
       background: linear-gradient(135deg, #00ffff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1.3;
     }
 
@@ -371,12 +652,20 @@
       margin: 0 auto;
     }
 
-    /* HOME BUTTON - Matches Experience Page Style */
+    /* HOME BUTTON */
     .home-button {
       position: fixed;
       bottom: 30px;
       right: 30px;
       z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .home-button.visible {
+      opacity: 1;
+      visibility: visible;
     }
 
     .home-button a {
@@ -403,7 +692,16 @@
        RESPONSIVE BREAKPOINTS
     ========================= */
     
-    /* Tablets and smaller laptops */
+    @media (max-width: 1024px) {
+      .learning-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .expertise-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
+
     @media (max-width: 900px) {
       .platform-feature {
         grid-template-columns: 1fr;
@@ -417,9 +715,12 @@
       .philosophy-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       }
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    /* Mobile landscape and tablets */
     @media (max-width: 768px) {
       .nav-inner {
         padding: 1rem 1.5rem;
@@ -454,6 +755,19 @@
       .section-title {
         font-size: 1.9rem;
         margin-bottom: 2.5rem;
+      }
+
+      .learning-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-card {
+        padding: 1.25rem;
+      }
+
+      .stat-card .number {
+        font-size: 1.8rem;
       }
       
       .philosophy-grid {
@@ -511,7 +825,6 @@
       }
     }
 
-    /* Mobile portrait */
     @media (max-width: 480px) {
       .nav-inner {
         padding: 0.875rem 1rem;
@@ -559,6 +872,23 @@
         font-size: 1.6rem;
         margin-bottom: 2rem;
       }
+
+      .learning-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .stat-card {
+        padding: 1rem;
+      }
+
+      .stat-card .number {
+        font-size: 1.5rem;
+      }
+
+      .stat-card .label {
+        font-size: 0.75rem;
+      }
       
       .philosophy-grid {
         grid-template-columns: 1fr;
@@ -581,6 +911,19 @@
       
       .philosophy-card p {
         font-size: 0.9rem;
+      }
+
+      .expertise-card {
+        padding: 1.5rem;
+      }
+
+      .expertise-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .expertise-tags {
+        justify-content: center;
       }
       
       .platform-feature {
@@ -673,7 +1016,6 @@
       }
     }
 
-    /* Extra small mobile devices */
     @media (max-width: 360px) {
       .page-title {
         font-size: 1.6rem;
@@ -707,9 +1049,9 @@
 <div class="circuit-background"></div>
 <div class="glitch-overlay"></div>
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <div class="logo"><a href="index.html">Khushi Nandwani</a></div>
+    <div class="logo"><a href="index.html">Pushpak Patil</a></div>
     <a href="index.html" class="nav-back">
       <i class="fas fa-arrow-left"></i> Back to Home
     </a>
@@ -722,9 +1064,34 @@
     <h1 class="page-title">Learning & Teaching</h1>
     <div class="title-underline"></div>
     <p class="page-subtitle">
-      I don't just learn cloud technologies — I translate them into platforms,
-      documentation, and resources that others can actually use.
+      I don't just learn cloud technologies — I translate them into secure architectures,
+      migration strategies, and automation frameworks that enterprises can actually implement.
+      Security isn't an afterthought; it's the foundation.
     </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+  <div class="container">
+    <div class="learning-stats">
+      <div class="stat-card">
+        <span class="number">5+</span>
+        <span class="label">Years Experience</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">50+</span>
+        <span class="label">Migrations Delivered</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">Multi</span>
+        <span class="label">Cloud Expertise</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">Enterprise</span>
+        <span class="label">Scale Solutions</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -734,45 +1101,150 @@
     <h2 class="section-title">My Learning Philosophy</h2>
     <div class="philosophy-grid">
       <div class="philosophy-card">
-        <i class="fas fa-lightbulb"></i>
-        <h3>Learn by Building</h3>
-        <p>Concepts stick when they are applied through real deployments.</p>
+        <i class="fas fa-shield-alt"></i>
+        <h3>Security First</h3>
+        <p>Every architecture decision starts with security. Compliance and protection aren't optional — they're foundational.</p>
       </div>
       <div class="philosophy-card">
         <i class="fas fa-diagram-project"></i>
         <h3>Think in Systems</h3>
-        <p>Cloud engineering is about architecture, integration, and trade-offs.</p>
+        <p>Cloud engineering is about architecture, integration, and trade-offs. Understanding the full picture matters.</p>
       </div>
       <div class="philosophy-card">
-        <i class="fas fa-pen-nib"></i>
-        <h3>Teach to Understand</h3>
-        <p>If I can explain it simply, I understand it deeply.</p>
+        <i class="fas fa-book-open"></i>
+        <h3>Document Everything</h3>
+        <p>Knowledge has value only when shared. Clear documentation enables teams to scale securely.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AWS STUDY PLATFORM -->
+<!-- EXPERTISE AREAS -->
 <section class="section">
   <div class="container">
-    <h2 class="section-title">AWS Study Platform</h2>
+    <h2 class="section-title">Areas of Expertise</h2>
+    <div class="expertise-grid">
+      
+      <!-- Cloud Security -->
+      <div class="expertise-card security">
+        <div class="expertise-header">
+          <div class="expertise-icon"><i class="fas fa-lock"></i></div>
+          <h3>Cloud Security</h3>
+        </div>
+        <p>Deep expertise in AWS security services, IAM policies, encryption strategies, compliance frameworks, and Security Competency implementations.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">IAM</span>
+          <span class="expertise-tag">KMS</span>
+          <span class="expertise-tag">GuardDuty</span>
+          <span class="expertise-tag">Security Hub</span>
+          <span class="expertise-tag">WAF</span>
+          <span class="expertise-tag">Compliance</span>
+        </div>
+      </div>
+
+      <!-- Multi-Cloud & Migrations -->
+      <div class="expertise-card multicloud">
+        <div class="expertise-header">
+          <div class="expertise-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <h3>Multi-Cloud & Migrations</h3>
+        </div>
+        <p>End-to-end cloud migrations across AWS, Azure, and GCP. Expertise in lift-and-shift, re-platforming, and cloud-native transformations.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">AWS</span>
+          <span class="expertise-tag">Azure</span>
+          <span class="expertise-tag">GCP</span>
+          <span class="expertise-tag">VMware</span>
+          <span class="expertise-tag">Migration Factory</span>
+        </div>
+      </div>
+
+      <!-- DevSecOps -->
+      <div class="expertise-card devops">
+        <div class="expertise-header">
+          <div class="expertise-icon"><i class="fas fa-infinity"></i></div>
+          <h3>DevSecOps</h3>
+        </div>
+        <p>Building secure CI/CD pipelines, infrastructure as code, and automated security testing integrated into development workflows.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">Terraform</span>
+          <span class="expertise-tag">Docker</span>
+          <span class="expertise-tag">Kubernetes</span>
+          <span class="expertise-tag">Jenkins</span>
+          <span class="expertise-tag">GitOps</span>
+          <span class="expertise-tag">Ansible</span>
+        </div>
+      </div>
+
+      <!-- DR & Automation -->
+      <div class="expertise-card dr">
+        <div class="expertise-header">
+          <div class="expertise-icon"><i class="fas fa-sync-alt"></i></div>
+          <h3>DR & Automation</h3>
+        </div>
+        <p>Designing disaster recovery strategies, business continuity solutions, and automation frameworks for enterprise resilience.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">DR Planning</span>
+          <span class="expertise-tag">Backup</span>
+          <span class="expertise-tag">RTO/RPO</span>
+          <span class="expertise-tag">Lambda</span>
+          <span class="expertise-tag">Step Functions</span>
+        </div>
+      </div>
+
+      <!-- Technical Sales & AWS WAR -->
+      <div class="expertise-card sales">
+        <div class="expertise-header">
+          <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Technical Sales & AWS WAR</h3>
+        </div>
+        <p>AWS Well-Architected Reviews, technical pre-sales, solution design, and helping customers optimize their cloud investments.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">AWS WAR</span>
+          <span class="expertise-tag">Well-Architected</span>
+          <span class="expertise-tag">Cost Optimization</span>
+          <span class="expertise-tag">Solution Design</span>
+        </div>
+      </div>
+
+      <!-- Mentorship & Leadership -->
+      <div class="expertise-card mentor">
+        <div class="expertise-header">
+          <div class="expertise-icon"><i class="fas fa-users"></i></div>
+          <h3>Mentorship & Leadership</h3>
+        </div>
+        <p>Guiding teams through cloud adoption journeys, mentoring engineers, and building high-performing technical teams.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">Team Building</span>
+          <span class="expertise-tag">Training</span>
+          <span class="expertise-tag">Knowledge Transfer</span>
+          <span class="expertise-tag">Best Practices</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE PLATFORM -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Knowledge Platform</h2>
     <div class="platform-feature">
       <div class="platform-text">
-        <h3>A Practical AWS Learning Hub</h3>
+        <h3>Cloud Architecture & Security Hub</h3>
         <p>
-          A centralized platform for AWS concepts, certifications,
-          quizzes, and architecture visuals.
+          A curated collection of security best practices, migration strategies,
+          and architecture patterns for enterprise cloud deployments.
         </p>
         <ul class="platform-points">
-          <li>Structured AWS service explanations</li>
-          <li>Certification-focused study paths</li>
-          <li>Interactive quizzes</li>
-          <li>Architecture diagrams</li>
+          <li>Security-focused architecture patterns</li>
+          <li>Multi-cloud migration frameworks</li>
+          <li>DR and business continuity playbooks</li>
+          <li>AWS Well-Architected guidance</li>
+          <li>Automation templates and scripts</li>
         </ul>
-        <a href="https://aws-study-platform.netlify.app/"
-           target="_blank"
-           class="btn btn-primary">
-          Visit Platform <i class="fas fa-arrow-right"></i>
+        <a href="#" target="_blank" class="btn btn-primary">
+          Explore Resources <i class="fas fa-arrow-right"></i>
         </a>
       </div>
       <div>
@@ -780,10 +1252,10 @@
           <span>Type</span><strong>Learning Platform</strong>
         </div>
         <div class="meta-card">
-          <span>Focus</span><strong>AWS & Cloud</strong>
+          <span>Focus</span><strong>Security & Architecture</strong>
         </div>
         <div class="meta-card">
-          <span>Deployment</span><strong>Netlify</strong>
+          <span>Content</span><strong>Guides & Frameworks</strong>
         </div>
       </div>
     </div>
@@ -796,17 +1268,19 @@
     <h2 class="section-title">Writing & Knowledge Sharing</h2>
     <div class="content-grid">
       <div class="content-card">
-        <h3>Technical Blogs (Medium)</h3>
-        <p>Deep dives into AWS, DevOps, and cloud architecture.</p>
-        <a href="https://medium.com/@khushinandwanii" target="_blank" class="link">
-          Read on Medium →
+        <div class="content-card-icon"><i class="fab fa-medium"></i></div>
+        <h3>Technical Blogs</h3>
+        <p>Deep dives into AWS security, cloud migrations, DevSecOps practices, and enterprise architecture patterns.</p>
+        <a href="#" target="_blank" class="link">
+          Read Articles <i class="fas fa-arrow-right"></i>
         </a>
       </div>
       <div class="content-card">
-        <h3>Reflective Writing (Substack)</h3>
-        <p>Personal insights on learning, growth, and consistency.</p>
-        <a href="https://substack.com/@knandwani07" target="_blank" class="link">
-          Read on Substack →
+        <div class="content-card-icon"><i class="fas fa-file-alt"></i></div>
+        <h3>Architecture Guides</h3>
+        <p>Step-by-step documentation for complex migrations, DR setups, security implementations, and Well-Architected reviews.</p>
+        <a href="#" target="_blank" class="link">
+          View Guides <i class="fas fa-arrow-right"></i>
         </a>
       </div>
     </div>
@@ -816,20 +1290,22 @@
 <!-- COMMUNITY -->
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Community & Ecosystem</h2>
+    <h2 class="section-title">Community & Professional</h2>
     <div class="content-grid">
       <div class="content-card">
-        <h3>AWS Builder Profile</h3>
-        <p>Part of the AWS Builder community sharing projects and learnings.</p>
-        <a href="https://builder.aws.com/community/@khushi07" target="_blank" class="link">
-          View Builder Profile →
+        <div class="content-card-icon"><i class="fab fa-aws"></i></div>
+        <h3>AWS Community</h3>
+        <p>Active participant in the AWS community, sharing security insights, migration experiences, and architectural best practices.</p>
+        <a href="#" target="_blank" class="link">
+          View Profile <i class="fas fa-arrow-right"></i>
         </a>
       </div>
       <div class="content-card">
-        <h3>LinkedIn Knowledge Sharing</h3>
-        <p>Project walkthroughs and cloud insights.</p>
-        <a href="https://www.linkedin.com/in/khushi-nandwani/" target="_blank" class="link">
-          View LinkedIn →
+        <div class="content-card-icon"><i class="fab fa-linkedin"></i></div>
+        <h3>LinkedIn</h3>
+        <p>Project walkthroughs, cloud security insights, and professional updates on enterprise solutions and team achievements.</p>
+        <a href="#" target="_blank" class="link">
+          Connect <i class="fas fa-arrow-right"></i>
         </a>
       </div>
     </div>
@@ -842,17 +1318,62 @@
     <div class="closing-note">
       <h2>Why This Matters</h2>
       <p>
-        Learning isn't complete until it helps someone else.
-        My goal is to build systems and content that make cloud practical.
+        In an era of increasing cyber threats and rapid digital transformation, 
+        security and reliability aren't optional — they're essential.
+        My goal is to help organizations build secure, compliant, and resilient cloud infrastructures
+        through practical knowledge, proven frameworks, and hands-on mentorship.
       </p>
     </div>
   </div>
 </section>
 
 <!-- HOME BUTTON -->
-<div class="home-button">
+<div class="home-button" id="homeButton">
   <a href="index.html"><i class="fas fa-home"></i> Home</a>
 </div>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const homeButton = document.getElementById('homeButton');
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    if (window.scrollY > 300) {
+      homeButton.classList.add('visible');
+    } else {
+      homeButton.classList.remove('visible');
+    }
+  });
+
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Animate cards on scroll
+  document.querySelectorAll('.philosophy-card, .expertise-card, .content-card, .stat-card').forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'all 0.6s ease ' + (index * 0.1) + 's';
+    observer.observe(item);
+  });
+</script>
 
 </body>
 </html>

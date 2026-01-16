@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experience - Khushi Nandwani</title>
+  <title>Experience - Pushpak Patil</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,12 +28,12 @@ body {
 
 /* Glassmorphism Cards */
 .glass-card {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 255, 255, 0.15);
+    border: 1px solid rgba(0, 255, 255, 0.12);
     border-radius: 20px;
-    padding: 40px;
-    transition: all 0.3s ease;
+    padding: 35px;
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
 }
@@ -45,7 +45,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.08), transparent);
     transition: left 0.6s ease;
 }
 
@@ -55,8 +55,8 @@ body {
 
 .glass-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.15);
-    border-color: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.12);
+    border-color: rgba(0, 255, 255, 0.35);
 }
 
 /* Gradient Text */
@@ -130,7 +130,7 @@ body {
 /* HERO */
 .experience-hero {
     text-align: center;
-    padding: 120px 20px 60px;
+    padding: 120px 20px 50px;
     position: relative;
     overflow: hidden;
 }
@@ -143,7 +143,7 @@ body {
     transform: translateX(-50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
     pointer-events: none;
     animation: pulse 4s ease-in-out infinite;
 }
@@ -156,9 +156,17 @@ body {
 .page-title {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     position: relative;
     z-index: 1;
+}
+
+.page-subtitle {
+    color: #aaa;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    max-width: 700px;
+    margin: 0 auto 20px;
+    line-height: 1.7;
 }
 
 .title-underline {
@@ -177,23 +185,31 @@ body {
 
 /* EXPERIENCE SECTION */
 .experience-section {
-    padding: 60px 20px 120px;
+    padding: 40px 20px 120px;
     position: relative;
 }
 
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    background: linear-gradient(135deg, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Experience Card */
 .experience-card {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     animation: fadeInUp 0.8s ease forwards;
     opacity: 0;
 }
 
-.experience-card:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.experience-card:nth-child(2) {
-    animation-delay: 0.4s;
-}
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
 
 @keyframes fadeInUp {
     from {
@@ -206,125 +222,160 @@ body {
     }
 }
 
-.experience-header {
+/* Company Header */
+.company-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 30px;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(0, 255, 255, 0.15);
-    gap: 20px;
 }
 
-.experience-header h2 {
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-    font-weight: 600;
-    margin: 0 0 10px 0;
-    line-height: 1.3;
-}
-
-.experience-meta {
-    color: #aaa;
-    line-height: 1.8;
-    margin: 0;
-    font-size: clamp(0.85rem, 2vw, 1rem);
-}
-
-.experience-meta i {
-    color: #00ffff;
-    margin-right: 8px;
-    width: 20px;
-}
-
-.experience-duration {
-    display: inline-flex;
+.company-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+    border-radius: 12px;
+    display: flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(0, 255, 255, 0.1);
-    color: #00ffff;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
-    font-weight: 500;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    white-space: nowrap;
+    justify-content: center;
     flex-shrink: 0;
 }
 
-.experience-body {
-    padding: 0;
+.company-icon i {
+    font-size: 1.5rem;
+    color: #00ffff;
 }
 
-.experience-block {
-    margin-bottom: 25px;
+.company-info h2 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+.company-info .location {
+    color: #888;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.company-info .location i {
+    color: #00ffff;
+    font-size: 0.85rem;
+}
+
+/* Role Block */
+.role-block {
+    margin-bottom: 28px;
     padding-left: 20px;
-    border-left: 3px solid rgba(0, 255, 255, 0.3);
+    border-left: 3px solid rgba(0, 255, 255, 0.25);
     transition: all 0.3s ease;
 }
 
-.experience-block:hover {
+.role-block:last-child {
+    margin-bottom: 0;
+}
+
+.role-block:hover {
     border-left-color: #00ffff;
     padding-left: 25px;
 }
 
-.experience-block h4 {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 600;
-    margin: 0 0 15px 0;
+.role-header {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    line-height: 1.4;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
-.experience-block ul {
+.role-title {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 600;
+    color: #00ffff;
+    margin: 0;
+}
+
+.role-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 255, 255, 0.08);
+    color: rgba(0, 255, 255, 0.9);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    white-space: nowrap;
+}
+
+.role-duration i {
+    font-size: 0.75rem;
+}
+
+/* Responsibilities List */
+.responsibilities {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.experience-block li {
+.responsibilities li {
     color: #bbb;
-    line-height: 1.8;
+    line-height: 1.75;
     margin-bottom: 10px;
-    padding-left: 25px;
+    padding-left: 22px;
     position: relative;
-    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-size: clamp(0.88rem, 2vw, 0.95rem);
 }
 
-.experience-block li::before {
+.responsibilities li::before {
     content: '▹';
     position: absolute;
     left: 0;
     color: #00ffff;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
-.text-cyan-400 {
+.responsibilities li:last-child {
+    margin-bottom: 0;
+}
+
+/* Highlight text */
+.highlight {
     color: #00ffff;
+    font-weight: 500;
 }
 
-.text-green-400 {
-    color: #00ff00;
+/* Skills Tags */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
 }
 
-.text-yellow-400 {
+.skill-tag {
+    background: rgba(0, 255, 255, 0.08);
     color: #00ffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    transition: all 0.3s ease;
 }
 
-.skills-used {
-    margin-top: 25px;
-    padding: 20px;
-    background: rgba(0, 255, 255, 0.05);
-    border-radius: 12px;
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    color: #bbb;
-    line-height: 1.6;
-    font-size: clamp(0.85rem, 2vw, 0.95rem);
-}
-
-.skills-used strong {
-    color: #00ffff;
+.skill-tag:hover {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 255, 255, 0.4);
 }
 
 /* HOME BUTTON */
@@ -339,7 +390,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 15px 25px;
+    padding: 14px 24px;
     background: linear-gradient(135deg, #00ffff, #ff00ff);
     color: white;
     text-decoration: none;
@@ -347,7 +398,7 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
-    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
 }
 
 .home-button a:hover {
@@ -379,39 +430,31 @@ body {
     }
 
     .experience-section {
-        padding: 40px 15px 100px;
-    }
-
-    .experience-card {
-        margin-bottom: 35px;
+        padding: 30px 15px 100px;
     }
 
     .glass-card {
-        padding: 30px 20px;
+        padding: 25px 20px;
     }
 
-    .experience-header {
+    .company-header {
         flex-direction: column;
-        gap: 15px;
-        margin-bottom: 25px;
-        padding-bottom: 15px;
+        align-items: flex-start;
+        gap: 12px;
     }
 
-    .experience-duration {
-        align-self: flex-start;
+    .role-header {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .experience-block {
+    .role-block {
         padding-left: 15px;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
     }
 
-    .experience-block:hover {
+    .role-block:hover {
         padding-left: 20px;
-    }
-
-    .experience-block h4 {
-        flex-wrap: wrap;
     }
 
     .home-button {
@@ -439,49 +482,43 @@ body {
     }
 
     .experience-section {
-        padding: 30px 12px 90px;
+        padding: 25px 12px 90px;
     }
 
     .glass-card {
-        padding: 25px 15px;
-        border-radius: 15px;
+        padding: 22px 16px;
+        border-radius: 16px;
     }
 
-    .experience-header {
-        gap: 12px;
-        padding-bottom: 12px;
-        margin-bottom: 20px;
+    .company-icon {
+        width: 42px;
+        height: 42px;
     }
 
-    .experience-duration {
-        padding: 6px 12px;
+    .company-icon i {
+        font-size: 1.2rem;
     }
 
-    .experience-duration i {
-        font-size: 0.8rem;
-    }
-
-    .experience-block {
+    .role-block {
         padding-left: 12px;
-        margin-bottom: 18px;
     }
 
-    .experience-block:hover {
+    .role-block:hover {
+        padding-left: 16px;
+    }
+
+    .responsibilities li {
         padding-left: 18px;
-    }
-
-    .experience-block h4 {
-        margin-bottom: 12px;
-    }
-
-    .experience-block li {
         margin-bottom: 8px;
-        padding-left: 20px;
     }
 
-    .skills-used {
-        padding: 15px;
-        margin-top: 20px;
+    .skills-tags {
+        gap: 8px;
+    }
+
+    .skill-tag {
+        padding: 5px 12px;
+        font-size: 0.75rem;
     }
 
     .home-button {
@@ -510,23 +547,15 @@ body {
     }
 
     .glass-card {
-        padding: 20px 12px;
+        padding: 18px 14px;
     }
 
-    .experience-block {
+    .role-block {
         padding-left: 10px;
     }
 
-    .experience-block:hover {
-        padding-left: 15px;
-    }
-
-    .experience-block li {
-        padding-left: 18px;
-    }
-
-    .skills-used {
-        padding: 12px;
+    .role-block:hover {
+        padding-left: 14px;
     }
 }
   </style>
@@ -539,9 +568,8 @@ body {
   <div class="nav-container">
     <div class="nav-inner">
       <div class="logo">
-        <a href="index.html">Khushi Nandwani</a>
+        <a href="index.html">Pushpak Patil</a>
       </div>
-
       <a href="index.html" class="nav-back">
         <i class="fas fa-arrow-left"></i>
         Back to Home
@@ -553,106 +581,167 @@ body {
 <!-- HEADER -->
 <header class="experience-hero">
   <h1 class="page-title gradient-text">My Professional Journey</h1>
+  <p class="page-subtitle">From hands-on cloud engineering to architecting AI-assisted, secure, and resilient cloud platforms — my journey reflects depth, scale, and leadership.</p>
   <div class="title-underline"></div>
 </header>
 
 <!-- EXPERIENCE SECTION -->
 <section class="experience-section container">
+  
+  <h2 class="section-title">Experience</h2>
 
-  <!-- EXPERIENCE 1 -->
+  <!-- APPLIED CLOUD COMPUTING -->
   <div class="experience-card glass-card">
-
-    <div class="experience-header">
-      <div>
-        <h2 class="gradient-text">AWS Cloud Technology Trainee ☁️</h2>
-        <p class="experience-meta">
-          <i class="fas fa-building"></i> Genie US Tech · Internship <br>
-          <i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka, India · Remote
-        </p>
+    <div class="company-header">
+      <div class="company-icon">
+        <i class="fas fa-cloud"></i>
       </div>
-      <span class="experience-duration">
-        <i class="fas fa-calendar-alt"></i> Dec 2024 – May 2025
-      </span>
+      <div class="company-info">
+        <h2>Applied Cloud Computing (ACC)</h2>
+        <span class="location"><i class="fas fa-map-marker-alt"></i> Mumbai, India</span>
+      </div>
     </div>
 
-    <div class="experience-body">
-
-      <div class="experience-block">
-        <h4 class="text-cyan-400">📄 Technical Documentation & Cloud Content</h4>
-        <ul>
-          <li>Hands-on experience in technical documentation for AWS-based solutions</li>
-          <li>Created and maintained end-to-end project documentation</li>
-          <li>Authored deployment guides, architecture diagrams, and reports</li>
-        </ul>
+    <!-- Cloud Solution Architect -->
+    <div class="role-block">
+      <div class="role-header">
+        <h3 class="role-title">Cloud Solution Architect</h3>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Jun 2025 – Present</span>
       </div>
+      <ul class="responsibilities">
+        <li>Architect cloud platforms for <span class="highlight">BFSI and enterprise clients</span>, aligning business goals with secure, scalable cloud designs</li>
+        <li>Lead architecture reviews, solution design discussions, and technical pre-sales engagements</li>
+        <li>Design <span class="highlight">AI-assisted automation</span> for cloud operations, cost optimization, and reliability engineering</li>
+        <li>Build intelligent workflows using AWS Lambda, Step Functions, and agent-based decision logic</li>
+        <li>Architect security-first platforms with automated audits, compliance enforcement, and remediation</li>
+        <li>Own disaster recovery strategy including automated failover, DR drills, and resilience testing</li>
+      </ul>
+    </div>
 
-      <div class="experience-block">
-        <h4 class="text-green-400">🧠 Clarity & Knowledge Sharing</h4>
-        <ul>
-          <li>Simplified complex AWS concepts for developers and stakeholders</li>
-          <li>Ensured accuracy and consistency across documentation</li>
-          <li>Contributed to documentation best practices</li>
-        </ul>
+    <!-- Senior Cloud Engineer -->
+    <div class="role-block">
+      <div class="role-header">
+        <h3 class="role-title">Senior Cloud Engineer</h3>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Apr 2024 – May 2025</span>
       </div>
+      <ul class="responsibilities">
+        <li>Spearheaded AWS infrastructure for BFSI clients including <span class="highlight">Zuno, HDBFS, SBIGIC, and Bandhan Bank</span></li>
+        <li>Designed and deployed secure AWS Landing Zones using Control Tower and Organizations</li>
+        <li>Led cloud security audits, compliance reviews, and regulatory alignment initiatives</li>
+        <li>Drove cost optimization programs achieving <span class="highlight">20–30% savings</span> across client accounts</li>
+        <li>Mentored junior engineers and conducted internal AWS training programs</li>
+        <li>Played a lead role in Disaster Recovery drills and restoration testing</li>
+      </ul>
+    </div>
 
-      <div class="experience-block">
-        <h4 class="text-yellow-400">⚙️ Process Improvements</h4>
-        <ul>
-          <li>Improved documentation workflows for better collaboration</li>
-          <li>Supported structured knowledge sharing</li>
-        </ul>
+    <!-- DevOps Engineer -->
+    <div class="role-block">
+      <div class="role-header">
+        <h3 class="role-title">DevOps Engineer</h3>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Apr 2023 – Mar 2024</span>
       </div>
+      <ul class="responsibilities">
+        <li>Built and maintained CI/CD pipelines using Jenkins and Git-based workflows</li>
+        <li>Automated infrastructure provisioning and security controls</li>
+        <li>Supported production environments with a strong focus on security and reliability</li>
+      </ul>
+    </div>
 
-      <p class="skills-used">
-        🛠️ <strong>Skills:</strong> AWS · Cloud Computing · Technical Writing · Documentation · Architecture Diagrams
-      </p>
+    <!-- Cloud Engineer -->
+    <div class="role-block">
+      <div class="role-header">
+        <h3 class="role-title">Cloud Engineer</h3>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Apr 2022 – Mar 2023</span>
+      </div>
+      <ul class="responsibilities">
+        <li>Implemented cloud infrastructure using AWS core services</li>
+        <li>Supported cloud migrations, automation scripts, and infrastructure optimization</li>
+      </ul>
+    </div>
 
+    <!-- Project Intern -->
+    <div class="role-block">
+      <div class="role-header">
+        <h3 class="role-title">Project Intern</h3>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Mar 2022 – Apr 2022</span>
+      </div>
+      <ul class="responsibilities">
+        <li>Worked on foundational AWS architecture, Linux systems, and automation basics</li>
+      </ul>
+    </div>
+
+    <div class="skills-tags">
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">Control Tower</span>
+      <span class="skill-tag">Lambda</span>
+      <span class="skill-tag">Step Functions</span>
+      <span class="skill-tag">Jenkins</span>
+      <span class="skill-tag">Terraform</span>
+      <span class="skill-tag">Security & Compliance</span>
+      <span class="skill-tag">DR Planning</span>
     </div>
   </div>
 
-  <!-- EXPERIENCE 2 -->
+  <!-- ELITE EDUCARE ACADEMY -->
   <div class="experience-card glass-card">
-
-    <div class="experience-header">
-      <div>
-        <h2 class="gradient-text">Faculty & Content Writer ✍️</h2>
-        <p class="experience-meta">
-          <i class="fas fa-building"></i> R. Advantec Computer Institution · Full-time <br>
-          <i class="fas fa-map-marker-alt"></i> On-site
-        </p>
+    <div class="company-header">
+      <div class="company-icon">
+        <i class="fas fa-graduation-cap"></i>
       </div>
-      <span class="experience-duration">
-        <i class="fas fa-calendar-alt"></i> Mar 2023 – Apr 2024
-      </span>
+      <div class="company-info">
+        <h2>Elite Educare Academy</h2>
+        <span class="location"><i class="fas fa-map-marker-alt"></i> Thane, India</span>
+      </div>
     </div>
 
-    <div class="experience-body">
-
-      <div class="experience-block">
-        <h4 class="text-cyan-400">📚 Educational Content Development</h4>
-        <ul>
-          <li>Created structured study materials to simplify concepts</li>
-          <li>Developed notes and presentations for classroom delivery</li>
-          <li>Ensured clarity and accessibility in content</li>
-        </ul>
+    <div class="role-block">
+      <div class="role-header">
+        <h3 class="role-title">Founder & Cloud Mentor</h3>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Mar 2015 – Mar 2022</span>
       </div>
+      <ul class="responsibilities">
+        <li>Founded and scaled an education platform with a team of <span class="highlight">20 instructors</span></li>
+        <li>Mentored <span class="highlight">350+ students</span> across mathematics, physics, cloud computing, and security</li>
+        <li>Designed curriculum and training programs tailored to evolving industry needs</li>
+        <li>Developed strong leadership, communication, and technical mentorship capabilities</li>
+      </ul>
+    </div>
 
-      <div class="experience-block">
-        <h4 class="text-green-400">🎓 Teaching & Academic Support</h4>
-        <ul>
-          <li>Guided students through technical subjects</li>
-          <li>Supported academic growth with quality resources</li>
-        </ul>
+    <div class="skills-tags">
+      <span class="skill-tag">Leadership</span>
+      <span class="skill-tag">Mentorship</span>
+      <span class="skill-tag">Curriculum Design</span>
+      <span class="skill-tag">Cloud Training</span>
+    </div>
+  </div>
+
+  <!-- DECATHLON -->
+  <div class="experience-card glass-card">
+    <div class="company-header">
+      <div class="company-icon">
+        <i class="fas fa-running"></i>
       </div>
-
-      <div class="experience-block">
-        <h4 class="text-yellow-400">🌱 Impact</h4>
-        <ul>
-          <li>Improved student comprehension</li>
-          <li>Strengthened institutional learning resources</li>
-        </ul>
+      <div class="company-info">
+        <h2>Decathlon Sports India</h2>
+        <span class="location"><i class="fas fa-map-marker-alt"></i> Thane, India</span>
       </div>
+    </div>
 
+    <div class="role-block">
+      <div class="role-header">
+        <h3 class="role-title">Product Sales Manager (Part-Time)</h3>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Mar 2012 – Apr 2014</span>
+      </div>
+      <ul class="responsibilities">
+        <li>Developed client-facing communication and sales management skills</li>
+        <li>Gained hands-on experience in stakeholder engagement and customer operations</li>
+      </ul>
+    </div>
+
+    <div class="skills-tags">
+      <span class="skill-tag">Sales</span>
+      <span class="skill-tag">Communication</span>
+      <span class="skill-tag">Customer Relations</span>
     </div>
   </div>
 

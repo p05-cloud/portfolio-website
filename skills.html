@@ -164,7 +164,7 @@
             font-size: 2.5rem;
             font-weight: 600;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             background: linear-gradient(135deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -187,7 +187,7 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-bottom: 80px;
         }
@@ -622,7 +622,7 @@
     <div class="container">
         <div class="nav-inner">
             <div class="logo">
-                <a href="index.html">Khushi Nandwani</a>
+                <a href="index.html">Pushpak Patil</a>
             </div>
             <a href="index.html" class="nav-back">
                 <i class="fas fa-arrow-left"></i> Back to Home
@@ -641,97 +641,175 @@
     <!-- Skills Section -->
     <section class="skills-section container">
         <h2 class="section-title">Core Competencies</h2>
+        
         <div class="skills-grid">
-            <!-- Technical Skills -->
-            <div class="skill-category">
-                <h3 class="category-title"><i class="fas fa-cogs"></i> Technical Skills</h3>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-code"></i></div>
-                    <div class="skill-info">
-                        <h3>Front-End Development</h3>
-                        <p>HTML, CSS, JavaScript, React, Bootstrap</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-item">
+
+                <!-- Block 1: Cloud Architecture & Platforms -->
+                <div class="skill-category">
+                  <div class="category-title"><i class="fas fa-cloud"></i> Cloud Architecture & Platforms</div>
+              
+                  <div class="skill-item">
                     <div class="skill-icon"><i class="fab fa-aws"></i></div>
                     <div class="skill-info">
-                        <h3>AWS Cloud</h3>
-                        <p>EC2, S3, Lambda, CloudWatch, IAM</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 90%;"></div>
-                        </div>
+                      <h3>AWS Multi-Account Architecture</h3>
+                      <p>Landing zones, governance, BFSI-grade environments.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:92%"></div></div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-linux"></i></div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
                     <div class="skill-info">
-                        <h3>Linux</h3>
-                        <p>System Administration, Shell Scripting</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 80%;"></div>
-                        </div>
+                      <h3>Azure Enterprise Workloads</h3>
+                      <p>Hybrid designs, enterprise migrations.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:85%"></div></div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-palette"></i></div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
                     <div class="skill-info">
-                        <h3>UX/UI Design</h3>
-                        <p>User-Centered Design, Prototyping</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 75%;"></div>
-                        </div>
+                      <h3>Large-Scale Migrations</h3>
+                      <p>Azure → AWS, GHES, BFSI workloads.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:88%"></div></div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Soft Skills -->
-            <div class="skill-category">
-                <h3 class="category-title"><i class="fas fa-users"></i> Soft Skills</h3>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-university"></i></div>
                     <div class="skill-info">
-                        <h3>Problem-Solving</h3>
-                        <p>Analytical Thinking, Creative Solutions</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 95%;"></div>
-                        </div>
+                      <h3>BFSI Cloud Enablement</h3>
+                      <p>SBI, HDFC, ICICI, regulated environments.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:90%"></div></div>
                     </div>
+                  </div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-search"></i></div>
+              
+                <!-- Block 2: Security & Competencies -->
+                <div class="skill-category">
+                  <div class="category-title"><i class="fas fa-shield-alt"></i> Security & Cloud Competencies</div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-key"></i></div>
                     <div class="skill-info">
-                        <h3>Attention to Detail</h3>
-                        <p>Precision, Quality Assurance</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 90%;"></div>
-                        </div>
+                      <h3>Secrets Management & Vault</h3>
+                      <p>HashiCorp Vault design & integration.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:93%"></div></div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-pen"></i></div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-user-lock"></i></div>
                     <div class="skill-info">
-                        <h3>Content Writing</h3>
-                        <p>SEO, Technical Writing</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 95%;"></div>
-                        </div>
+                      <h3>IAM & Identity Federation</h3>
+                      <p>Least privilege, SSO, access governance.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:88%"></div></div>
                     </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-lock"></i></div>
+                    <div class="skill-info">
+                      <h3>Encryption & HSM Concepts</h3>
+                      <p>KMS, HSM awareness, key lifecycle.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:82%"></div></div>
+                    </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-gavel"></i></div>
+                    <div class="skill-info">
+                      <h3>Compliance & Risk Posture</h3>
+                      <p>BFSI controls, audit readiness.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:80%"></div></div>
+                    </div>
+                  </div>
                 </div>
-                <div class="skill-item">
+              
+                <!-- Block 3: Resilience, DR & Cost -->
+                <div class="skill-category">
+                  <div class="category-title"><i class="fas fa-life-ring"></i> Resilience, DR & Cost Engineering</div>
+              
+                  <div class="skill-item">
                     <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
                     <div class="skill-info">
-                        <h3>Adaptability</h3>
-                        <p>Learning Agility, Flexibility</p>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%;"></div>
-                        </div>
+                      <h3>Disaster Recovery Design</h3>
+                      <p>RTO/RPO aligned architectures.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:90%"></div></div>
                     </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="skill-info">
+                      <h3>Business Continuity</h3>
+                      <p>Production cutovers & rollback plans.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:85%"></div></div>
+                    </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="skill-info">
+                      <h3>Cloud Cost Optimization</h3>
+                      <p>FinOps, cost visibility & savings.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:88%"></div></div>
+                    </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-info">
+                      <h3>Data Center Exposure</h3>
+                      <p>Infra grounding beyond cloud.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:75%"></div></div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
+              
+                <!-- Block 4: AI, Automation & Leadership -->
+                <div class="skill-category">
+                  <div class="category-title"><i class="fas fa-brain"></i> AI, Automation & Technical Leadership</div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                    <div class="skill-info">
+                      <h3>Agentic AI for Cloud Ops</h3>
+                      <p>AI-assisted decision workflows.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:78%"></div></div>
+                    </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="skill-info">
+                      <h3>Infrastructure Automation</h3>
+                      <p>IaC, operational automation.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:92%"></div></div>
+                    </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-users"></i></div>
+                    <div class="skill-info">
+                      <h3>Mentorship & Intern Training</h3>
+                      <p>50+ interns, RAIT & Mithibai.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:95%"></div></div>
+                    </div>
+                  </div>
+              
+                  <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="skill-info">
+                      <h3>Technical Pre-Sales Leadership</h3>
+                      <p>Client trust & solution ownership.</p>
+                      <div class="skill-progress"><div class="skill-progress-bar" style="width:88%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+          
     </section>
 
     <!-- Home Button -->

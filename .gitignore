@@ -1,0 +1,12 @@
+# macOS system files
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# Node / frontend junk (future-proof)
+node_modules/
