@@ -10,3 +10,12 @@
 
 # Node / frontend junk (future-proof)
 node_modules/
+
+# macOS junk
+.DS_Store
+images/.DS_Store
+
+# Temporarily exclude work-in-progress files
+images/blogs.html
+images/project.html
+images/script.js
