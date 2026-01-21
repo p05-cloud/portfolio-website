@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="description" content="Pushpak Patil - Cloud Automations & Workflows showcasing infrastructure automation, event-driven architectures, and CI/CD pipelines for enterprise environments">
+<meta name="description" content="Pushpak Patil - Enterprise Cloud Automations & Workflows showcasing AWS infrastructure automation, reporting solutions, and security compliance tools">
 <meta name="author" content="Pushpak Patil">
 <title>Automations & Workflows | Pushpak Patil</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -126,7 +126,7 @@ body {
   color: #bbbbbb;
   font-size: 1.15rem;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -247,6 +247,14 @@ body {
   transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(0, 255, 255, 0.15);
   border-color: rgba(0, 255, 255, 0.35);
+}
+
+.automation-card.coming-soon {
+  opacity: 0.7;
+}
+
+.automation-card.coming-soon:hover {
+  transform: translateY(-4px);
 }
 
 .card-header {
@@ -377,6 +385,15 @@ body {
   color: #00ffff;
 }
 
+.badge-coming {
+  background: linear-gradient(135deg, #ff00ff, #ff00aa);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
 /* Home Button */
 .home-button {
   position: fixed;
@@ -403,6 +420,18 @@ body {
 .home-button a:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
+}
+
+/* Scroll Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive Design */
@@ -460,116 +489,25 @@ body {
     font-size: 1rem;
   }
   
-  .hero-stats {
-    gap: 1.5rem;
-  }
-  
   .container {
-    padding: 0 1.5rem 80px;
+    padding: 0 1.5rem 100px;
   }
   
   .automation-card {
-    padding: 25px;
+    padding: 25px 20px;
   }
   
   .card-title {
     font-size: 1.1rem;
-  }
-  
-  .section-title::before,
-  .section-title::after {
-    width: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-container {
-    padding: 0.875rem 1rem;
-  }
-  
-  .logo a {
-    font-size: 1.1rem;
-  }
-  
-  .nav-back {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.8rem;
-  }
-  
-  .hero {
-    padding: 100px 1rem 50px;
-  }
-  
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  
-  .hero p {
-    font-size: 0.95rem;
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .stat-number {
-    font-size: 1.8rem;
-  }
-  
-  .container {
-    padding: 0 1rem 60px;
-  }
-  
-  .section-title {
-    font-size: 1.4rem;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .section-title::before,
-  .section-title::after {
-    display: none;
-  }
-  
-  .section-icon {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .automation-card {
-    padding: 20px;
-  }
-  
-  .card-header {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .card-icon {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .card-title {
-    font-size: 1.05rem;
   }
   
   .card-description {
     font-size: 0.9rem;
   }
   
-  .impact-box {
-    padding: 12px 15px;
-  }
-  
-  .card-actions {
-    flex-direction: column;
-  }
-  
-  .card-link {
-    justify-content: center;
-    width: 100%;
+  .section-title::before,
+  .section-title::after {
+    width: 30px;
   }
   
   .home-button {
@@ -583,21 +521,30 @@ body {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .hero h1 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
   }
   
-  .section-title {
-    font-size: 1.25rem;
+  .hero-stats {
+    gap: 1.5rem;
   }
   
-  .automation-card {
-    padding: 18px;
+  .stat-number {
+    font-size: 1.8rem;
   }
   
-  .card-title {
-    font-size: 1rem;
+  .stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+  }
+  
+  .card-link {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>
@@ -610,25 +557,27 @@ body {
 <!-- Navigation -->
 <nav class="navbar">
   <div class="nav-container">
-    <div class="logo"><a href="index.html">Pushpak Patil</a></div>
+    <div class="logo">
+      <a href="index.html">PUSHPAK PATIL</a>
+    </div>
     <a href="index.html" class="nav-back">
-      <i class="fas fa-arrow-left"></i> Back to Home
+      <i class="fas fa-arrow-left"></i>
+      Back to Portfolio
     </a>
   </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero">
-  <h1>Automations & Workflows</h1>
-  <p>Streamlining cloud operations through intelligent automation, event-driven architectures, and infrastructure as code</p>
-  
+  <h1>Enterprise Cloud Automations</h1>
+  <p>Production-grade AWS automation solutions built for enterprise clients. Multi-account architectures, serverless workflows, and Infrastructure as Code.</p>
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-number">11+</div>
-      <div class="stat-label">Automations Built</div>
+      <div class="stat-number">12+</div>
+      <div class="stat-label">Automations</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">4</div>
+      <div class="stat-number">5</div>
       <div class="stat-label">Categories</div>
     </div>
     <div class="stat-item">
@@ -638,391 +587,391 @@ body {
   </div>
 </section>
 
+<!-- Main Content -->
 <div class="container">
 
-<!-- Section 1: Infrastructure Automation -->
-<h2 class="section-title">
-  <span class="section-icon"><i class="fas fa-server"></i></span>
-  Infrastructure Automation
-</h2>
-<p class="section-subtitle">Automating cloud resource provisioning and container orchestration</p>
+  <!-- Section 1: Reporting & Analytics -->
+  <h2 class="section-title fade-in">
+    <span class="section-icon"><i class="fas fa-chart-line"></i></span>
+    Reporting & Analytics
+  </h2>
+  <p class="section-subtitle fade-in">Automated reporting solutions for multi-account AWS environments</p>
 
-<div class="automation-grid">
-
-  <!-- Card 1 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-bolt"></i></div>
-      <h3 class="card-title">Serverless REST API</h3>
-    </div>
-    <p class="card-description">
-      Fully serverless REST API with CRUD operations, automatic scaling, and zero server management. Built for high availability and cost efficiency.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Zero infrastructure management</span>
-        <span class="impact-item">Pay-per-request pricing</span>
-        <span class="impact-item">Auto-scaling enabled</span>
+  <div class="automation-grid">
+    
+    <!-- AWS Performance Report Automation -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-file-word"></i></div>
+        <h3 class="card-title">AWS Performance Report Automation</h3>
+      </div>
+      <p class="card-description">Enterprise multi-account performance reporting using Step Functions. Generates comprehensive Word documents with CloudWatch metrics for EC2, RDS, and ECS services with 7-day historical graphs.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Multi-Account Support</span>
+          <span class="impact-item">Parallel Processing</span>
+          <span class="impact-item">Word Documents</span>
+          <span class="impact-item">Email via SES</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Step Functions</span>
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">CloudWatch</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Terraform</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-performance-report-automation" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">Lambda</span>
-      <span class="tech-tag">API Gateway</span>
-      <span class="tech-tag">DynamoDB</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/aws-cloud-deployment-labs/tree/main/01-serverless-rest-api" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
 
-  <!-- Card 2 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-box"></i></div>
-      <h3 class="card-title">Container Registry Pipeline</h3>
-    </div>
-    <p class="card-description">
-      Automated container image builds with ECR integration. Standardized tagging, authentication, and registry best practices for consistent deployments.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Standardized images</span>
-        <span class="impact-item">Version control</span>
-        <span class="impact-item">Faster deployments</span>
+    <!-- AWS Utilization Report -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <h3 class="card-title">AWS Utilization Report</h3>
+      </div>
+      <p class="card-description">Automated infrastructure utilization reporting for EC2, RDS, and ECS services. Customizable warning/critical thresholds with multi-channel notifications and enterprise deployment options (Lambda, ECS, Docker).</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Multi-Service Support</span>
+          <span class="impact-item">Disk Metrics (Linux/Windows)</span>
+          <span class="impact-item">Threshold Alerting</span>
+          <span class="impact-item">Excel Reports</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">CloudWatch</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">ECS Fargate</span>
+        <span class="tech-tag">Python</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-utilization-report" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">Docker</span>
-      <span class="tech-tag">Amazon ECR</span>
-      <span class="tech-tag">NGINX</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/aws-cloud-deployment-labs/tree/main/02-containerized-nginx-ecr" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
 
-  <!-- Card 3 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-dharmachakra"></i></div>
-      <h3 class="card-title">ECS Fargate Deployment</h3>
-    </div>
-    <p class="card-description">
-      Serverless container orchestration eliminating EC2 management overhead. Task definitions, services, and automatic scaling without infrastructure concerns.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">No EC2 management</span>
-        <span class="impact-item">Automatic scaling</span>
-        <span class="impact-item">Reduced operational cost</span>
+    <!-- AWS Route53 Inventory Report -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-globe"></i></div>
+        <h3 class="card-title">Route53 DNS Inventory Report</h3>
+      </div>
+      <p class="card-description">Automated multi-account Route53 DNS inventory reporting with Excel generation, S3 storage, and email notifications. Cross-account IAM role assumption for secure querying across AWS Organizations.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Multi-Account Query</span>
+          <span class="impact-item">Excel Workbooks</span>
+          <span class="impact-item">Scheduled Execution</span>
+          <span class="impact-item">S3 Lifecycle</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">Route53</span>
+        <span class="tech-tag">EventBridge</span>
+        <span class="tech-tag">Terraform</span>
+        <span class="tech-tag">openpyxl</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-route53-inventory-report" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">ECS</span>
-      <span class="tech-tag">Fargate</span>
-      <span class="tech-tag">Task Definitions</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/aws-cloud-deployment-labs/tree/main/03-ecs-fargate-web-app" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
 
-  <!-- Card 4 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-cubes"></i></div>
-      <h3 class="card-title">EKS Orchestration</h3>
-    </div>
-    <p class="card-description">
-      Production-grade Kubernetes deployment on Amazon EKS with manifests, services, and enterprise-ready cluster orchestration patterns.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Enterprise-ready K8s</span>
-        <span class="impact-item">Managed control plane</span>
-        <span class="impact-item">Production patterns</span>
+    <!-- S3 Bucket Report Generator -->
+    <div class="automation-card coming-soon fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-database"></i></div>
+        <h3 class="card-title">S3 Bucket Detailed Report Generator</h3>
+      </div>
+      <p class="card-description">Comprehensive S3 bucket inventory and analysis tool. Generates detailed reports including storage metrics, versioning status, encryption settings, and lifecycle policies across accounts.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Storage Analysis</span>
+          <span class="impact-item">Security Audit</span>
+          <span class="impact-item">Cost Breakdown</span>
+          <span class="impact-item">Excel Export</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">S3</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Terraform</span>
+      </div>
+      <div class="card-actions">
+        <span class="badge-coming"><i class="fas fa-clock"></i> Coming Soon</span>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">Amazon EKS</span>
-      <span class="tech-tag">Kubernetes</span>
-      <span class="tech-tag">kubectl</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/aws-cloud-deployment-labs/tree/main/04-eks-nginx-deployment" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
+
   </div>
 
-</div>
+  <!-- Section 2: Cost Optimization -->
+  <h2 class="section-title fade-in">
+    <span class="section-icon"><i class="fas fa-dollar-sign"></i></span>
+    Cost Optimization
+  </h2>
+  <p class="section-subtitle fade-in">FinOps automation for AWS cost management and optimization</p>
 
-<!-- Section 2: Event-Driven Workflows -->
-<h2 class="section-title">
-  <span class="section-icon"><i class="fas fa-bolt"></i></span>
-  Event-Driven Workflows
-</h2>
-<p class="section-subtitle">Building reactive systems that respond to real-time events</p>
+  <div class="automation-grid">
 
-<div class="automation-grid">
-
-  <!-- Card 5 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
-      <h3 class="card-title">Order Processing Pipeline</h3>
-    </div>
-    <p class="card-description">
-      End-to-end order processing system with automated workflows, state management, error handling, and complete audit trails for transactional integrity.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">End-to-end automation</span>
-        <span class="impact-item">Built-in error handling</span>
-        <span class="impact-item">Complete audit trail</span>
+    <!-- AWS RI & SP Monitoring -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-piggy-bank"></i></div>
+        <h3 class="card-title">RI & Savings Plans Monitor</h3>
+      </div>
+      <p class="card-description">Automated monitoring for Reserved Instances and Savings Plans utilization/coverage. Generates daily graphical reports with matplotlib, trend analysis, and threshold alerting via email.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Utilization Tracking</span>
+          <span class="impact-item">Coverage Analysis</span>
+          <span class="impact-item">Graphical Reports</span>
+          <span class="impact-item">Threshold Alerts</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">Cost Explorer</span>
+        <span class="tech-tag">matplotlib</span>
+        <span class="tech-tag">EventBridge</span>
+        <span class="tech-tag">SES</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-commitment-usage-and-coverage-monitor" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">Step Functions</span>
-      <span class="tech-tag">Lambda</span>
-      <span class="tech-tag">SNS</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/serverless-orderflow" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
+
   </div>
 
-  <!-- Card 6 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-receipt"></i></div>
-      <h3 class="card-title">AI-Powered Receipt Processing</h3>
-    </div>
-    <p class="card-description">
-      Intelligent document processing using OCR and AI to extract structured data from receipts automatically. Eliminates manual data entry with high accuracy.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">90%+ extraction accuracy</span>
-        <span class="impact-item">Zero manual entry</span>
-        <span class="impact-item">Instant processing</span>
+  <!-- Section 3: Security & Compliance -->
+  <h2 class="section-title fade-in">
+    <span class="section-icon"><i class="fas fa-shield-alt"></i></span>
+    Security & Compliance
+  </h2>
+  <p class="section-subtitle fade-in">Automated security enforcement and compliance monitoring</p>
+
+  <div class="automation-grid">
+
+    <!-- IAM Compliance Automation -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+        <h3 class="card-title">IAM Compliance Automation</h3>
+      </div>
+      <p class="card-description">Centralized IAM security enforcement across multiple AWS accounts. Auto-enforces MFA requirements, monitors user activity patterns, disables inactive accounts, and generates comprehensive Excel compliance reports.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">MFA Enforcement</span>
+          <span class="impact-item">Inactivity Detection</span>
+          <span class="impact-item">Key Rotation Alerts</span>
+          <span class="impact-item">Multi-Account</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">IAM</span>
+        <span class="tech-tag">EventBridge</span>
+        <span class="tech-tag">Secrets Manager</span>
+        <span class="tech-tag">Terraform</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-iam-compliance-automation" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">Textract</span>
-      <span class="tech-tag">Lambda</span>
-      <span class="tech-tag">S3 Events</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/automated-receipt-processing-tool" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
 
-  <!-- Card 7 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-bell"></i></div>
-      <h3 class="card-title">CloudPulse — Real-time Alerts</h3>
-    </div>
-    <p class="card-description">
-      Infrastructure monitoring system using event-driven architecture for real-time EC2 state change detection and automated alert notifications.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Real-time monitoring</span>
-        <span class="impact-item">Faster incident response</span>
-        <span class="impact-item">Automated notifications</span>
+    <!-- EC2 Automated Patching -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
+        <h3 class="card-title">EC2 Automated Patching Solution</h3>
+      </div>
+      <p class="card-description">Enterprise EC2 patch management automation using AWS Systems Manager. Scheduled patching windows, pre/post patch validation, rollback capabilities, and compliance reporting across fleet.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Scheduled Patching</span>
+          <span class="impact-item">Maintenance Windows</span>
+          <span class="impact-item">Compliance Reports</span>
+          <span class="impact-item">Rollback Support</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">SSM</span>
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">EventBridge</span>
+        <span class="tech-tag">CloudFormation</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/EC2-automated-patching-solution" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">EventBridge</span>
-      <span class="tech-tag">SNS</span>
-      <span class="tech-tag">CloudWatch</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/cloudpulse-eventbridge-ec2-alerts" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
+
   </div>
 
-  <!-- Card 8 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
-      <h3 class="card-title">Stress Testing & Alarms</h3>
-    </div>
-    <p class="card-description">
-      Performance validation framework for stress testing EC2 workloads with CloudWatch alarms, custom dashboards, and SNS alert integration.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Validated capacity</span>
-        <span class="impact-item">Proactive alerting</span>
-        <span class="impact-item">Performance baselines</span>
+  <!-- Section 4: Infrastructure Automation -->
+  <h2 class="section-title fade-in">
+    <span class="section-icon"><i class="fas fa-server"></i></span>
+    Infrastructure Automation
+  </h2>
+  <p class="section-subtitle fade-in">Reusable IaC modules and container orchestration</p>
+
+  <div class="automation-grid">
+
+    <!-- ECS Fargate Nested Stacks -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fab fa-docker"></i></div>
+        <h3 class="card-title">ECS Fargate Nested Stacks</h3>
+      </div>
+      <p class="card-description">Production-ready, modular CloudFormation nested stacks for ECS Fargate deployments. Includes ALB integration, auto-scaling, multi-tier CloudWatch alerting, ECR lifecycle, and deployment circuit breakers.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">7 Modular Stacks</span>
+          <span class="impact-item">Auto Scaling</span>
+          <span class="impact-item">ALB Integration</span>
+          <span class="impact-item">Circuit Breaker</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">CloudFormation</span>
+        <span class="tech-tag">ECS Fargate</span>
+        <span class="tech-tag">ALB</span>
+        <span class="tech-tag">ECR</span>
+        <span class="tech-tag">CloudWatch</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-ecs-fargate-nested-stacks" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">CloudWatch</span>
-      <span class="tech-tag">EC2</span>
-      <span class="tech-tag">SNS</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/aws-cloud-projects/tree/main/networking-ha/stress-testing-and-cloudwatch-alarms" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
 
-</div>
-
-<!-- Section 3: Data & Analytics -->
-<h2 class="section-title">
-  <span class="section-icon"><i class="fas fa-chart-bar"></i></span>
-  Data & Analytics Pipelines
-</h2>
-<p class="section-subtitle">Transforming raw data into actionable insights</p>
-
-<div class="automation-grid">
-
-  <!-- Card 9 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-database"></i></div>
-      <h3 class="card-title">Serverless Analytics Workflow</h3>
-    </div>
-    <p class="card-description">
-      Complete serverless analytics pipeline for SQL-based insights without managing infrastructure. From raw data to interactive dashboards.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Zero infrastructure</span>
-        <span class="impact-item">SQL-based queries</span>
-        <span class="impact-item">Interactive dashboards</span>
+    <!-- Lambda SQS Integration -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+        <h3 class="card-title">Lambda SQS Integration Module</h3>
+      </div>
+      <p class="card-description">Production-ready Terraform module for AWS Lambda with SQS queue integration. Supports Standard/FIFO queues, optional DLQ with configurable redrive policy, VPC deployment, and partial batch failure handling.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Standard & FIFO</span>
+          <span class="impact-item">Dead Letter Queue</span>
+          <span class="impact-item">VPC Support</span>
+          <span class="impact-item">Batch Processing</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Terraform</span>
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">SQS</span>
+        <span class="tech-tag">DLQ</span>
+        <span class="tech-tag">Python</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-lambda-sqs-integration" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">S3</span>
-      <span class="tech-tag">Glue</span>
-      <span class="tech-tag">Athena</span>
-      <span class="tech-tag">QuickSight</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/serverless-data-analytics-workflow" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
+
   </div>
 
-  <!-- Card 10 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-search"></i></div>
-      <h3 class="card-title">Athena Query Sandbox</h3>
-    </div>
-    <p class="card-description">
-      Learning environment for serverless SQL analytics with pre-configured datasets and performance-optimized query patterns for rapid skill development.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Faster onboarding</span>
-        <span class="impact-item">Best practice patterns</span>
-        <span class="impact-item">Cost-optimized queries</span>
+  <!-- Section 5: Monitoring & Alerting -->
+  <h2 class="section-title fade-in">
+    <span class="section-icon"><i class="fas fa-bell"></i></span>
+    Monitoring & Alerting
+  </h2>
+  <p class="section-subtitle fade-in">CloudWatch alarm automation with tag-based discovery</p>
+
+  <div class="automation-grid">
+
+    <!-- CloudWatch Alarm Factory -->
+    <div class="automation-card fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-bell"></i></div>
+        <h3 class="card-title">CloudWatch Alarm Factory</h3>
+      </div>
+      <p class="card-description">Enterprise-grade CloudWatch alarm automation for EC2 instances. Tag-based auto-discovery, multi-OS support (Linux/Windows disk metrics), tiered thresholds, and team-based SNS routing. Transforms 8,000+ lines of CFN to ~100 lines config.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Key Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Tag-Based Discovery</span>
+          <span class="impact-item">Multi-OS Support</span>
+          <span class="impact-item">Tiered Thresholds</span>
+          <span class="impact-item">Team SNS Routing</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Terraform</span>
+        <span class="tech-tag">CloudFormation</span>
+        <span class="tech-tag">CloudWatch</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">SNS</span>
+      </div>
+      <div class="card-actions">
+        <a href="https://github.com/p05-cloud/aws-cloudwatch-alarm-factory" target="_blank" class="card-link primary">
+          <i class="fab fa-github"></i> View Code
+        </a>
+        <a href="https://github.com/p05-cloud/aws-cw-alarm-factory" target="_blank" class="card-link secondary">
+          <i class="fas fa-code-branch"></i> Alt Version
+        </a>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-tag">Athena</span>
-      <span class="tech-tag">S3</span>
-      <span class="tech-tag">Glue Catalog</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/athena-playground" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
 
-  <!-- Card 11 -->
-  <div class="automation-card">
-    <div class="card-header">
-      <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-      <h3 class="card-title">AWS Study Platform</h3>
-    </div>
-    <p class="card-description">
-      Centralized knowledge hub with AWS study notes, architecture references, and certification preparation materials for team enablement.
-    </p>
-    <div class="impact-box">
-      <div class="impact-label"><i class="fas fa-chart-line"></i> Impact</div>
-      <div class="impact-items">
-        <span class="impact-item">Team enablement</span>
-        <span class="impact-item">Faster knowledge transfer</span>
-        <span class="impact-item">Certification support</span>
-      </div>
-    </div>
-    <div class="tech-stack">
-      <span class="tech-tag">Documentation</span>
-      <span class="tech-tag">Architecture</span>
-      <span class="tech-tag">Best Practices</span>
-    </div>
-    <div class="card-actions">
-      <a href="https://github.com/p05-cloud/aws-study-platform" target="_blank" class="card-link secondary">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
   </div>
-
-</div>
 
 </div>
 
 <!-- Home Button -->
 <div class="home-button">
   <a href="index.html">
-    <i class="fas fa-home"></i> Home
+    <i class="fas fa-home"></i>
+    Home
   </a>
 </div>
 
+<!-- Scroll Animation Script -->
 <script>
-// Scroll animation for cards
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.automation-card');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+document.addEventListener('DOMContentLoaded', function() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }, index * 100);
+        entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.1 });
-  
-  cards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
   });
 });
 </script>
