@@ -369,6 +369,14 @@
       color: #fff;
       box-shadow: 0 8px 25px rgba(15, 98, 254, 0.5);
     }
+    .cert-card.ibm-advanced .btn-verify {
+      border-color: #0f62fe;
+      color: #0f62fe;
+    }
+    .cert-card.ibm-advanced .btn-verify:hover {
+      background: rgba(15, 98, 254, 0.15);
+      box-shadow: 0 5px 20px rgba(15, 98, 254, 0.3);
+    }
 
     .cert-card.associate {
       border-color: rgba(255, 153, 0, 0.2);
@@ -503,7 +511,7 @@
 
     .cert-footer {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 25px;
       flex-wrap: wrap;
@@ -567,6 +575,14 @@
       border-left-color: #ff9900;
     }
 
+    /* Button Container */
+    .cert-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 180px;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -610,6 +626,53 @@
       background: #ff9900;
       color: #000;
       box-shadow: 0 8px 25px rgba(255, 153, 0, 0.5);
+    }
+
+    /* Verify Button Style */
+    .btn-verify {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: transparent;
+      border: 2px solid #00ffff;
+      border-radius: 30px;
+      color: #00ffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-verify:hover {
+      background: rgba(0, 255, 255, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .btn-verify i {
+      font-size: 1rem;
+    }
+
+    .cert-card.specialty .btn-verify {
+      border-color: #ff0066;
+      color: #ff0066;
+    }
+    .cert-card.specialty .btn-verify:hover {
+      background: rgba(255, 0, 102, 0.15);
+      box-shadow: 0 5px 20px rgba(255, 0, 102, 0.3);
+    }
+
+    .cert-card.associate .btn-verify {
+      border-color: #ff9900;
+      color: #ff9900;
+    }
+    .cert-card.associate .btn-verify:hover {
+      background: rgba(255, 153, 0, 0.15);
+      box-shadow: 0 5px 20px rgba(255, 153, 0, 0.3);
     }
 
     /* Journey Section */
@@ -719,7 +782,7 @@
 
     .journey-arrow {
       color: #333;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
 
     /* Modal */
@@ -730,11 +793,10 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 2000;
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 2000;
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
@@ -746,48 +808,48 @@
     }
 
     .modal-content {
-      position: relative;
       max-width: 90%;
       max-height: 90%;
+      position: relative;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .modal-content img {
       max-width: 100%;
       max-height: 85vh;
+      object-fit: contain;
       border-radius: 15px;
-      box-shadow: 0 25px 80px rgba(0, 255, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
     }
 
     .modal-close {
       position: absolute;
       top: -50px;
       right: 0;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: none;
+      border: none;
       color: #fff;
-      font-size: 2rem;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+      font-size: 3rem;
       cursor: pointer;
       transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .modal-close:hover {
-      background: rgba(255, 0, 102, 0.3);
-      border-color: #ff0066;
+      color: #00ffff;
       transform: rotate(90deg);
     }
 
     /* Home Button */
     .home-button {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 999;
+      bottom: 40px;
+      right: 40px;
+      z-index: 900;
       opacity: 0;
       visibility: hidden;
       transform: translateY(20px);
@@ -805,20 +867,24 @@
       align-items: center;
       gap: 10px;
       padding: 15px 25px;
-      background: linear-gradient(135deg, #00ffff, #ff00ff);
-      color: #000;
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid #00ffff;
+      border-radius: 50px;
+      color: #00ffff;
       text-decoration: none;
       font-weight: 600;
-      border-radius: 50px;
-      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
       transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
 
     .home-button a:hover {
+      background: #00ffff;
+      color: #000;
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0, 255, 255, 0.6);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
     }
 
+    /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -830,52 +896,28 @@
       }
     }
 
-    /* Responsive Design */
-    @media (max-width: 1100px) {
-      .cert-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
+    /* Responsive */
+    @media (max-width: 1200px) {
       .cert-card {
         flex-direction: column;
       }
 
       .cert-image-container {
         width: 100%;
-        min-width: 100%;
-        padding: 40px 20px;
+        min-width: unset;
+        padding: 40px;
       }
 
-      .cert-content {
-        padding: 30px 25px;
-      }
-
-      .cert-points li {
-        flex: 1 1 100%;
-      }
-
-      .cert-footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .journey-path {
-        flex-direction: column;
-      }
-
-      .journey-arrow {
-        transform: rotate(90deg);
+      .cert-image-container img {
+        max-width: 180px;
       }
     }
 
     @media (max-width: 768px) {
+      .cert-header {
+        padding: 120px 20px 60px;
+      }
+
       .cert-title {
         font-size: 2.5rem;
       }
@@ -885,61 +927,58 @@
       }
 
       .cert-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        padding: 0 20px;
       }
 
-      .cert-journey {
-        padding: 30px 20px;
-      }
-
-      .vendor-badges {
-        gap: 10px;
-      }
-
-      .vendor-badge {
-        padding: 8px 15px;
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 1rem 0;
-      }
-
-      .nav-container {
-        padding: 0 15px;
-      }
-
-      .logo a {
-        font-size: 1.3rem;
-      }
-
-      .nav-back {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-
-      .cert-header {
-        padding: 120px 20px 60px;
-      }
-
-      .cert-title {
+      .cert-stat span {
         font-size: 2rem;
       }
 
       .cert-section {
-        padding: 40px 15px 100px;
+        padding: 40px 20px 100px;
+      }
+
+      .cert-content {
+        padding: 25px;
       }
 
       .cert-content h2 {
         font-size: 1.4rem;
       }
 
-      .home-button a {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+      .cert-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cert-points li {
+        flex: 0 1 100%;
+      }
+
+      .cert-buttons {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .btn, .btn-verify {
+        flex: 1;
+        min-width: 140px;
+      }
+
+      .cert-journey {
+        margin: 0 20px 60px;
+        padding: 30px 20px;
+      }
+
+      .journey-path {
+        flex-direction: column;
+      }
+
+      .journey-arrow {
+        transform: rotate(90deg);
       }
 
       .home-button {
@@ -947,18 +986,15 @@
         right: 20px;
       }
 
-      .home-button a i {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+      .vendor-badges {
+        gap: 10px;
       }
     }
   </style>
 </head>
-
 <body>
 
-<!-- Navigation -->
+<!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <div class="nav-inner">
@@ -966,63 +1002,59 @@
         <a href="index.html">Pushpak Patil</a>
       </div>
       <a href="index.html" class="nav-back">
-        <i class="fas fa-arrow-left"></i>
-        Back to Home
+        <i class="fas fa-arrow-left"></i> Back to Home
       </a>
     </div>
   </div>
 </nav>
 
 <!-- HEADER -->
-<section class="cert-header">
-  <div class="container">
-    <h1 class="cert-title">Certifications</h1>
-    <div class="title-underline"></div>
-    <p class="cert-subtitle">
-      Professional certifications validate my expertise in cloud architecture, security, and enterprise automation.
-      Each certification reflects hands-on learning, real-world application, and continuous improvement
-      in building secure, scalable, and automated enterprise solutions.
-    </p>
-    <div class="vendor-badges">
-      <span class="vendor-badge aws"><i class="fab fa-aws"></i> Amazon Web Services</span>
-      <span class="vendor-badge ibm"><i class="fas fa-cube"></i> IBM</span>
-    </div>
+<header class="cert-header">
+  <h1 class="cert-title">Professional Certifications</h1>
+  <div class="title-underline"></div>
+  <p class="cert-subtitle">
+    Industry-recognized credentials validating expertise in cloud architecture, 
+    security engineering, and enterprise automation technologies.
+  </p>
+  <div class="vendor-badges">
+    <span class="vendor-badge aws"><i class="fab fa-aws"></i> Amazon Web Services</span>
+    <span class="vendor-badge ibm"><i class="fas fa-cube"></i> IBM</span>
   </div>
-</section>
+</header>
 
-<!-- SNAPSHOT -->
+<!-- STATS -->
 <div class="cert-stats">
   <div class="cert-stat">
     <span>4</span>
-    <p>Professional Certifications</p>
+    <p>Active Certifications</p>
   </div>
   <div class="cert-stat">
     <span>2</span>
-    <p>Cloud Vendors</p>
+    <p>Certification Vendors</p>
   </div>
   <div class="cert-stat">
-    <span>Security</span>
-    <p>& Automation Focus</p>
+    <span>1</span>
+    <p>Specialty Level</p>
   </div>
   <div class="cert-stat">
-    <span>100%</span>
-    <p>Pass Rate</p>
+    <span>3+</span>
+    <p>Years Cloud Expertise</p>
   </div>
 </div>
 
 <!-- CERTIFICATIONS -->
-<section class="cert-section container">
+<section class="cert-section">
   <div class="cert-list">
-    
-    <!-- CERT 1: Security Specialty (Most Recent) -->
+
+    <!-- CERT 1: AWS Security Specialty -->
     <div class="cert-card specialty">
       <div class="cert-image-container">
-        <img src="images/aws-security-specialty.png" alt="AWS Security Specialty Certificate" onclick="openCertificate('images/aws-security-specialty.png')">
+        <img src="images/aws-security-specialty.png" alt="AWS Certified Security Specialty Badge" onclick="openCertificate('images/aws-security-specialty.png')">
       </div>
       
       <div class="cert-content">
         <div style="display: flex; align-items: center; flex-wrap: wrap;">
-          <span class="cert-tag"><i class="fas fa-star"></i> SPECIALTY</span>
+          <span class="cert-tag"><i class="fas fa-shield-alt"></i> SPECIALTY</span>
           <span class="cert-vendor aws"><i class="fab fa-aws"></i> AWS</span>
         </div>
         
@@ -1040,9 +1072,14 @@
             <li>Automate security incident response</li>
           </ul>
 
-          <button class="btn" onclick="openCertificate('images/aws-security-specialty.png')">
-            <i class="fas fa-certificate"></i> View Badge
-          </button>
+          <div class="cert-buttons">
+            <button class="btn" onclick="openCertificate('images/aws-security-specialty.png')">
+              <i class="fas fa-certificate"></i> View Badge
+            </button>
+            <a href="https://www.credly.com/badges/7a494e75-d88a-40cd-9156-72b9b3a78b70" target="_blank" rel="noopener" class="btn-verify">
+              <i class="fas fa-check-circle"></i> Verify on Credly
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1073,9 +1110,14 @@
             <li>Design high-availability Vault clusters</li>
           </ul>
 
-          <button class="btn" onclick="openCertificate('images/IBM-vault-practitioner-advanced.png')">
-            <i class="fas fa-certificate"></i> View Badge
-          </button>
+          <div class="cert-buttons">
+            <button class="btn" onclick="openCertificate('images/IBM-vault-practitioner-advanced.png')">
+              <i class="fas fa-certificate"></i> View Badge
+            </button>
+            <a href="https://www.credly.com/badges/9cd9e746-5cfe-4e76-8336-2328a66e1066" target="_blank" rel="noopener" class="btn-verify">
+              <i class="fas fa-check-circle"></i> Verify on Credly
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1106,14 +1148,19 @@
             <li>Select appropriate AWS services for workloads</li>
           </ul>
 
-          <button class="btn" onclick="openCertificate('images/saa2.png')">
-            <i class="fas fa-certificate"></i> View Badge
-          </button>
+          <div class="cert-buttons">
+            <button class="btn" onclick="openCertificate('images/saa2.png')">
+              <i class="fas fa-certificate"></i> View Badge
+            </button>
+            <a href="https://www.credly.com/badges/ccc12bc1-6a6e-40b3-bcbb-75783dff3f61" target="_blank" rel="noopener" class="btn-verify">
+              <i class="fas fa-check-circle"></i> Verify on Credly
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- CERT 4: Cloud Practitioner -->
+    <!-- CERT 4: Cloud Practitioner (No Credly badge) -->
     <div class="cert-card foundational">
       <div class="cert-image-container">
         <img src="images/ccp.png" alt="AWS Cloud Practitioner Certificate" onclick="openCertificate('images/ccp.png')">
@@ -1139,9 +1186,11 @@
             <li>Navigate the AWS shared responsibility model</li>
           </ul>
 
-          <button class="btn" onclick="openCertificate('images/ccp.png')">
-            <i class="fas fa-certificate"></i> View Badge
-          </button>
+          <div class="cert-buttons">
+            <button class="btn" onclick="openCertificate('images/ccp.png')">
+              <i class="fas fa-certificate"></i> View Badge
+            </button>
+          </div>
         </div>
       </div>
     </div>
